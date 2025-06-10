@@ -1,21 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* css/global.css */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.bg-header {
+  display: grid;
+  background-color: #55b7b6;
+  align-items: end; /* Coloca el contenido al fondo (abajo) */
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.menu-nav {
+  background-color: #0d9488;
+  padding: 12px 450px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.menu-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+
+.bg-footer {
+  background-color: #55b7b6; /* gris oscuro */
+  color: white;
+}
+
+.bg-main {
+  background-color: #e7f5f5; /* blanco */
+  color: #111827; /* texto gris oscuro */
 }
