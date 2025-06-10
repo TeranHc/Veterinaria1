@@ -44,7 +44,7 @@ export default function Header() {
   <nav className="menu-nav">
     <div className="flex flex-wrap items-center justify-center gap-4">
       <Link href="/" className="text-white text-lg font-medium hover:text-teal-200 transition-colors">
-        AAA
+        Inicio
       </Link>
       <span className="text-white">|</span>
       <Link href="/pages/nosotros" className="text-white text-lg font-medium hover:text-teal-200 transition-colors ">
