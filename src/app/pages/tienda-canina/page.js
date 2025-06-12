@@ -412,22 +412,22 @@ export default function SalesPage() {
     <div className="min-h-screen bg-gray-100 py-4 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header con carrito */}
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-4">
           {/* Título */}
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 flex-1 text-center">
+          <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 flex-1 text-center">
             NUESTROS PRODUCTOS
           </h1>
 
           {/* Botón del carrito */}
           <button
             onClick={() => setShowCart(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors duration-200 flex-shrink-0 ml-4"
+            className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors duration-200 flex-shrink-0 ml-4"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v4a2 2 0 01-2 2H9a2 2 0 01-2-2v-4m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
             </svg>
             {getTotalItems() > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
                 {getTotalItems()}
               </span>
             )}
