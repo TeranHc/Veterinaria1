@@ -394,7 +394,7 @@ export default function SalesPage() {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-4 py-2 mx-1 rounded-md font-medium transition-colors duration-200 ${
+          className={`px-2 py-2 sm:px-4 mx-0.5 text-xs sm:text-sm rounded-md font-medium transition-colors duration-200 min-w-[32px] sm:min-w-[40px] ${
             currentPage === i
               ? 'bg-blue-600 text-white'
               : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
@@ -564,32 +564,36 @@ export default function SalesPage() {
         
         {/* Paginación */}
         {totalPages > 0 && (
-          <div className="flex justify-center items-center mt-12 mb-8">
-            <div className="flex items-center space-x-2">
+          <div className="flex justify-center items-center mt-12 mb-8 px-2">
+            <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
+                className={`px-2 py-2 sm:px-4 text-xs sm:text-sm rounded-md font-medium transition-colors duration-200 whitespace-nowrap ${
                   currentPage === 1
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                 }`}
               >
-                Anterior
+                <span className="hidden sm:inline">Anterior</span>
+                <span className="sm:hidden">‹</span>
               </button>
               
-              {renderPagination()}
+              <div className="flex items-center space-x-1">
+                {renderPagination()}
+              </div>
               
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
+                className={`px-2 py-2 sm:px-4 text-xs sm:text-sm rounded-md font-medium transition-colors duration-200 whitespace-nowrap ${
                   currentPage === totalPages
                     ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                 }`}
               >
-                Siguiente
+                <span className="hidden sm:inline">Siguiente</span>
+                <span className="sm:hidden">›</span>
               </button>
             </div>
           </div>
