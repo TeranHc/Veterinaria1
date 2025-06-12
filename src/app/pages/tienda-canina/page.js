@@ -576,7 +576,7 @@ export default function SalesPage() {
                 }`}
               >
                 <span className="hidden sm:inline">Anterior</span>
-                <span className="sm:hidden">‹</span>
+                <span className="sm:hidden">Anterior</span>
               </button>
               
               <div className="flex items-center space-x-1">
@@ -593,7 +593,7 @@ export default function SalesPage() {
                 }`}
               >
                 <span className="hidden sm:inline">Siguiente</span>
-                <span className="sm:hidden">›</span>
+                <span className="sm:hidden">Siguiente</span>
               </button>
             </div>
           </div>
