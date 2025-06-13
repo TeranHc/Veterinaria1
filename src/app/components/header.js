@@ -83,7 +83,7 @@ export default function Header() {
 
           {/* Menú móvil */}
           <nav className={`lg:hidden w-full transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden'}`}>
-            <div className="flex flex-col items-center py-4 bg-teal-600 mx-4 rounded-lg mt-4 divide-y divide-white/20">
+            <div className="flex flex-col items-center py-4 bg-teal-600 mx-4 rounded-lg mt-4 divide-y-2 divide-white">
               <Link 
                 href="/" 
                 className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
