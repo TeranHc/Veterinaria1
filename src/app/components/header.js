@@ -15,7 +15,7 @@ export default function Header() {
       <div className="flex flex-col">
         
         {/* Sección superior con logo y título */}
-        <div className="flex items-center justify-between px-4 lg:px-11 pt-5">
+        <div className="flex items-center justify-between px-4 lg:px-11 pt-5 pb-4 lg:pb-0">
           {/* Logo y título a la izquierda */}
           <div className="flex items-center">
             <h1 className="font-bold text-black flex items-center text-xl lg:text-3xl">
@@ -83,38 +83,38 @@ export default function Header() {
 
           {/* Menú móvil */}
           <nav className={`lg:hidden w-full transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden'}`}>
-            <div className="flex flex-col items-center py-4 space-y-4 bg-teal-600 mx-4 rounded-lg mt-4">
+            <div className="flex flex-col items-center py-4 bg-teal-600 mx-4 rounded-lg mt-4 divide-y divide-white/20">
               <Link 
                 href="/" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Inicio
               </Link>
               <Link 
                 href="/pages/nosotros" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Nosotros
               </Link>
               <Link 
                 href="/informacion-medica" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Información Médica
               </Link>
               <Link 
                 href="/pages/tienda-canina" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Tienda Canina
               </Link>
               <Link 
                 href="/pages/carrito" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-3 first:pt-0 last:pb-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Horarios
