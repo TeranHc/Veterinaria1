@@ -86,35 +86,35 @@ export default function Header() {
             <div className="flex flex-col bg-teal-600 mx-4 rounded-lg mt-4">
               <Link 
                 href="/" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-white first:rounded-t-lg last:border-b-0 last:rounded-b-lg"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-gray first:rounded-t-lg last:border-b-0 last:rounded-b-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Inicio
               </Link>
               <Link 
                 href="/pages/nosotros" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-white last:border-b-0"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-gray last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Nosotros
               </Link>
               <Link 
                 href="/informacion-medica" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-white last:border-b-0"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-gray last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Información Médica
               </Link>
               <Link 
                 href="/pages/tienda-canina" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-white last:border-b-0"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-gray last:border-b-0"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Tienda Canina
               </Link>
               <Link 
                 href="/pages/carrito" 
-                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-white last:border-b-0 last:rounded-b-lg"
+                className="text-white text-lg font-medium hover:text-teal-200 transition-colors py-4 text-center border-b-2 border-gray last:border-b-0 last:rounded-b-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Horarios
