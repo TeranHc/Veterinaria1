@@ -2,84 +2,91 @@
 import { useState } from 'react';
 
 export default function Servicios() {
-  const [activeService, setActiveService] = useState('consulta');
+  const [activeTab, setActiveTab] = useState('consulta');
 
   const services = {
     consulta: {
-      title: "Consultas Veterinarias",
+      title: "Consultas Generales",
       description: (
         <>
-          <p className="text-gray-800 leading-relaxed">
-            Ofrecemos consultas médicas generales para tu mascota con un enfoque preventivo y diagnóstico,
-            atendidas por profesionales altamente capacitados.
+          <p className="text-gray-700 leading-relaxed">
+            Evaluación clínica completa realizada por nuestros veterinarios expertos. Detectamos
+            enfermedades, realizamos chequeos preventivos y damos asesoría personalizada.
           </p>
-          <p className="text-gray-800 leading-relaxed mt-2">
-            Realizamos chequeos regulares, exámenes clínicos y seguimiento de enfermedades.
+          <p className="text-gray-700 leading-relaxed mt-3">
+            Ideal para mascotas de todas las edades. La salud comienza con una buena revisión.
           </p>
         </>
       ),
-      image: "/",
-      altText: "Consulta veterinaria"
+      image: "/images/consulta.png",
+      altText: "Consulta general"
     },
-    vacunacion: {
-      title: "Vacunación y Desparasitación",
+    laboratorio: {
+      title: "Servicios de Laboratorio",
       description: (
         <>
-          <p className="text-gray-800 leading-relaxed">
-            Protege a tu mascota con nuestro esquema completo de vacunación y desparasitación interna y externa.
+          <p className="text-gray-700 leading-relaxed">
+            Contamos con laboratorio propio equipado para análisis clínicos: sangre, heces, orina, entre otros.
           </p>
-          <p className="text-gray-800 leading-relaxed mt-2">
-            Aplicamos vacunas según la edad y especie, garantizando la salud de tu compañero.
+          <p className="text-gray-700 leading-relaxed mt-3">
+            Diagnóstico preciso y rápido para garantizar tratamientos eficaces.
           </p>
         </>
       ),
-      image: "/",
-      altText: "Vacunación de mascota"
+      image: "/images/laboratorio.png",
+      altText: "Análisis clínicos"
     },
-    cirugia: {
-      title: "Cirugías",
+    teleconsulta: {
+      title: "Teleconsulta",
       description: (
         <>
-          <p className="text-gray-800 leading-relaxed">
-            Contamos con un quirófano totalmente equipado para realizar cirugías de rutina y de emergencia.
+          <p className="text-gray-700 leading-relaxed">
+            Atención veterinaria desde casa a través de videollamadas. Ideal para seguimiento de tratamientos o dudas.
           </p>
-          <p className="text-gray-800 leading-relaxed mt-2">
-            Brindamos cuidado pre y post operatorio con monitoreo constante para una recuperación segura.
+          <p className="text-gray-700 leading-relaxed mt-3">
+            Cómodo, rápido y seguro para ti y tu mascota.
           </p>
         </>
       ),
-      image: "/",
-      altText: "Equipo realizando cirugía"
+      image: "/images/teleconsulta.png",
+      altText: "Consulta remota"
+    },
+    domicilio: {
+      title: "Consulta a Domicilio",
+      description: (
+        <>
+          <p className="text-gray-700 leading-relaxed">
+            Vamos hasta tu hogar para brindar atención personalizada. Perfecto para mascotas con movilidad limitada o dueños sin transporte.
+          </p>
+          <p className="text-gray-700 leading-relaxed mt-3">
+            Profesionalismo y calidez sin que salgas de casa.
+          </p>
+        </>
+      ),
+      image: "/images/domicilio.png",
+      altText: "Consulta a domicilio"
     }
   };
 
   return (
-    <section className="text-center py-12 px-6">
-      {/* Encabezado */}
-      <div className="flex items-center justify-center mb-4">
-        <div className="h-px bg-gray-600 w-16"></div>
-        <span className="mx-4 text-gray-700 text-lg font-medium">Nuestros Servicios</span>
-        <div className="h-px bg-gray-600 w-16"></div>
+    <section className="py-16 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Cuidamos de tu mascota con atención integral, profesional y con amor. Elige el servicio que necesitas:
+        </p>
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-        ¿QUÉ OFRECEMOS?
-      </h1>
-
-      <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-        Brindamos una gama completa de servicios veterinarios para mantener la salud y felicidad de tus mascotas.
-      </p>
-
-      {/* Botones de servicios */}
+      {/* Tabs */}
       <div className="flex justify-center flex-wrap gap-4 mb-10">
         {Object.keys(services).map(key => (
           <button
             key={key}
-            onClick={() => setActiveService(key)}
-            className={`px-6 py-3 rounded-md font-semibold uppercase tracking-wide transition-colors ${
-              activeService === key
-                ? 'bg-teal-400 text-gray-800'
-                : 'bg-teal-300 text-gray-700 hover:bg-teal-350'
+            onClick={() => setActiveTab(key)}
+            className={`px-6 py-3 rounded-full font-medium uppercase tracking-wide transition-all duration-200 border ${
+              activeTab === key
+                ? 'bg-teal-500 text-white border-teal-500 shadow-md'
+                : 'bg-white text-teal-600 border-teal-300 hover:bg-teal-100'
             }`}
           >
             {services[key].title}
@@ -87,21 +94,23 @@ export default function Servicios() {
         ))}
       </div>
 
-      {/* Contenido del servicio activo */}
-      <div className="bg-cyan-200 rounded-lg p-8 flex flex-col lg:flex-row items-center gap-8 max-w-6xl mx-auto">
+      {/* Contenido dinámico */}
+      <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto">
         {/* Imagen */}
-        <div className="w-48 h-48 rounded-full overflow-hidden bg-gray-300">
+        <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-teal-400 shadow-inner">
           <img
-            src={services[activeService].image}
-            alt={services[activeService].altText}
-            className="w-full h-full object-cover"
+            src={services[activeTab].image}
+            alt={services[activeTab].altText}
+            className="w-full h-full object-contain"
           />
         </div>
 
         {/* Texto */}
-        <div className="flex-1 text-left">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">{services[activeService].title}</h2>
-          {services[activeService].description}
+        <div className="text-left flex-1">
+          <h3 className="text-2xl font-semibold text-teal-700 mb-3">
+            {services[activeTab].title}
+          </h3>
+          {services[activeTab].description}
         </div>
       </div>
     </section>
