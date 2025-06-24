@@ -67,7 +67,7 @@ export default function Header() {
                 Nosotros
               </Link>
               <span className="text-white">|</span>
-              <Link href="/informacion-medica" className="text-white text-lg font-medium hover:text-teal-200 transition-colors">
+              <Link href="/pages/servicio" className="text-white text-lg font-medium hover:text-teal-200 transition-colors">
                 Información Médica
               </Link>
               <span className="text-white">|</span>
