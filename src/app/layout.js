@@ -1,3 +1,4 @@
+import { CartProvider } from './components/CartContext';
 import './globals.css';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -5,7 +6,7 @@ import Script from 'next/script';
 
 export const metadata = {
   title: 'SaludPet',
-  description: 'Página de prueba con layout',
+  description: 'Veterinaria especializada en el cuidado de mascotas',
 };
 
 export default function RootLayout({ children }) {
@@ -27,9 +28,11 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow p-4 bg-main">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-grow p-4 bg-main">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
