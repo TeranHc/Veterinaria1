@@ -98,7 +98,7 @@ export default function Servicios() {
           <img
             src={services[activeTab].image}
             alt={services[activeTab].altText}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
 
