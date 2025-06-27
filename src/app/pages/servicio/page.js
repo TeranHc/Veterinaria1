@@ -33,7 +33,7 @@ export default function Servicios() {
           </p>
         </>
       ),
-      image: "/images/laboratorio.png",
+      image: "/images/laboratorio.jpg",
       altText: "Análisis clínicos",
     },
     teleconsulta: {
@@ -48,7 +48,7 @@ export default function Servicios() {
           </p>
         </>
       ),
-      image: "/images/teleconsulta.png",
+      image: "/images/Teleconsulta.jpg",
       altText: "Consulta remota",
     },
     domicilio: {
@@ -63,7 +63,7 @@ export default function Servicios() {
           </p>
         </>
       ),
-      image: "/images/domicilio.png",
+      image: "/images/domicilio.jpg",
       altText: "Consulta a domicilio",
     },
   };
