@@ -313,7 +313,7 @@ export default function Servicios() {
                     <span className={`font-bold text-lg ${categoria.textColor}`}>{servicio.precio}</span>
                   </div>
                 ))}
-              </div>           
+              </div>             
             </div>
           ))}
         </div>
@@ -346,38 +346,70 @@ export default function Servicios() {
       </div>
 
       {/* FAQ */}
-      <div className="mt-24 max-w-4xl mx-auto">
-        <h3 className="text-3xl font-bold text-gray-800 mb-4 text-center">Preguntas Frecuentes</h3>
-        <p className="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
-          Resolvemos las dudas más comunes sobre nuestros servicios veterinarios
-        </p>
-        <div className="space-y-6">
+      <div className="mt-24 max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-block bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+            FAQ
+          </div>
+          <h3 className="text-4xl font-bold text-gray-800 mb-6">Preguntas Frecuentes</h3>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Resolvemos las dudas más comunes sobre nuestros servicios veterinarios
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {[{
             pregunta: "¿Atienden emergencias las 24 horas?",
-            respuesta: "Sí, contamos con servicio de emergencias disponible las 24 horas del día, los 7 días de la semana. Nuestro equipo está preparado para atender cualquier urgencia veterinaria."
+            respuesta: "Sí, contamos con servicio de emergencias disponible las 24 horas del día, los 7 días de la semana. Nuestro equipo está preparado para atender cualquier urgencia veterinaria.",
+            icono: "🚨",
+            color: "from-red-500 to-red-600"
           }, {
             pregunta: "¿Puedo agendar una cita por WhatsApp?",
-            respuesta: "Por supuesto. Además de llamadas telefónicas, también puedes agendar citas a través de WhatsApp para mayor comodidad. Nuestro equipo te responderá rápidamente."
+            respuesta: "Por supuesto. Además de llamadas telefónicas, también puedes agendar citas a través de WhatsApp para mayor comodidad. Nuestro equipo te responderá rápidamente.",
+            icono: "📱",
+            color: "from-green-500 to-green-600"
           }, {
             pregunta: "¿Atienden animales exóticos?",
-            respuesta: "Sí, atendemos diferentes tipos de animales exóticos dependiendo de la especie. Te recomendamos consultar disponibilidad con nuestro equipo especializado antes de la cita."
+            respuesta: "Sí, atendemos diferentes tipos de animales exóticos dependiendo de la especie. Te recomendamos consultar disponibilidad con nuestro equipo especializado antes de la cita.",
+            icono: "🦎",
+            color: "from-purple-500 to-purple-600"
           }, {
             pregunta: "¿Qué incluye el servicio a domicilio?",
-            respuesta: "El servicio a domicilio incluye consulta general, vacunación, toma de muestras para laboratorio y seguimiento de tratamientos. Llevamos todo el equipo necesario a tu hogar."
+            respuesta: "El servicio a domicilio incluye consulta general, vacunación, toma de muestras para laboratorio y seguimiento de tratamientos. Llevamos todo el equipo necesario a tu hogar.",
+            icono: "🏠",
+            color: "from-blue-500 to-blue-600"
           }, {
             pregunta: "¿Ofrecen descuentos para múltiples mascotas?",
-            respuesta: "Sí, ofrecemos descuentos especiales para familias con múltiples mascotas y paquetes promocionales para servicios regulares. Consulta con nuestro equipo las opciones disponibles."
+            respuesta: "Sí, ofrecemos descuentos especiales para familias con múltiples mascotas y paquetes promocionales para servicios regulares. Consulta con nuestro equipo las opciones disponibles.",
+            icono: "💰",
+            color: "from-yellow-500 to-yellow-600"
+          }, {
+            pregunta: "¿Realizan cirugías complejas?",
+            respuesta: "Contamos con quirófanos equipados y veterinarios especializados para realizar cirugías desde nivel básico hasta procedimientos más complejos. Evaluamos cada caso individualmente.",
+            icono: "⚕️",
+            color: "from-teal-500 to-teal-600"
           }].map((item, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
-                  <span className="text-teal-600 font-bold">?</span>
-                </div>
-                <div className="flex-1">
-                  <p className="font-semibold text-gray-800 text-lg mb-2">{item.pregunta}</p>
-                  <p className="text-gray-600 leading-relaxed">{item.respuesta}</p>
+            <div key={i} className="group relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.color}`}></div>
+              
+              <div className="p-8">
+                <div className="flex items-start gap-6">
+                  <div className={`flex-shrink-0 w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {item.icono}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <h4 className="text-xl font-bold text-gray-800 mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                      {item.pregunta}
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      {item.respuesta}
+                    </p>
+                  </div>
                 </div>
               </div>
+              
+              <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br ${item.color} opacity-5 rounded-full transform translate-x-8 translate-y-8 group-hover:scale-150 transition-transform duration-500`}></div>
             </div>
           ))}
         </div>
