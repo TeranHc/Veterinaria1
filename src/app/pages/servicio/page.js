@@ -1,8 +1,8 @@
 "use client";
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Servicios() {
-  const [activeTab, setActiveTab] = useState('consulta');
+  const [activeTab, setActiveTab] = useState("consulta");
 
   const services = {
     consulta: {
@@ -19,7 +19,7 @@ export default function Servicios() {
         </>
       ),
       image: "/images/consulta.png",
-      altText: "Consulta general"
+      altText: "Consulta general",
     },
     laboratorio: {
       title: "Servicios de Laboratorio",
@@ -34,7 +34,7 @@ export default function Servicios() {
         </>
       ),
       image: "/images/laboratorio.png",
-      altText: "Análisis clínicos"
+      altText: "Análisis clínicos",
     },
     teleconsulta: {
       title: "Teleconsulta",
@@ -49,7 +49,7 @@ export default function Servicios() {
         </>
       ),
       image: "/images/teleconsulta.png",
-      altText: "Consulta remota"
+      altText: "Consulta remota",
     },
     domicilio: {
       title: "Consulta a Domicilio",
@@ -64,8 +64,8 @@ export default function Servicios() {
         </>
       ),
       image: "/images/domicilio.png",
-      altText: "Consulta a domicilio"
-    }
+      altText: "Consulta a domicilio",
+    },
   };
 
   return (
@@ -77,16 +77,15 @@ export default function Servicios() {
         </p>
       </div>
 
-      {/* Tabs */}
       <div className="flex justify-center flex-wrap gap-4 mb-10">
-        {Object.keys(services).map(key => (
+        {Object.keys(services).map((key) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
             className={`px-6 py-3 rounded-full font-medium uppercase tracking-wide transition-all duration-200 border ${
               activeTab === key
-                ? 'bg-teal-500 text-white border-teal-500 shadow-md'
-                : 'bg-white text-teal-600 border-teal-300 hover:bg-teal-100'
+                ? "bg-teal-500 text-white border-teal-500 shadow-md"
+                : "bg-white text-teal-600 border-teal-300 hover:bg-teal-100"
             }`}
           >
             {services[key].title}
@@ -94,9 +93,7 @@ export default function Servicios() {
         ))}
       </div>
 
-      {/* Contenido dinámico */}
       <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto">
-        {/* Imagen */}
         <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-teal-400 shadow-inner">
           <img
             src={services[activeTab].image}
@@ -105,12 +102,79 @@ export default function Servicios() {
           />
         </div>
 
-        {/* Texto */}
         <div className="text-left flex-1">
           <h3 className="text-2xl font-semibold text-teal-700 mb-3">
             {services[activeTab].title}
           </h3>
           {services[activeTab].description}
+        </div>
+      </div>
+
+      {/* Beneficios */}
+      <div className="mt-20 max-w-6xl mx-auto text-center">
+        <h3 className="text-3xl font-bold text-gray-800 mb-8">¿Por qué elegirnos?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {["Atención 24/7", "Veterinarios certificados", "Equipamiento moderno", "Servicio a domicilio", "Seguimiento post consulta", "Planes de salud para mascotas"].map((benefit, i) => (
+            <div key={i} className="bg-white shadow-md p-6 rounded-xl text-teal-700 font-medium">
+              {benefit}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Planes */}
+      <div className="mt-20 max-w-6xl mx-auto text-center">
+        <h3 className="text-3xl font-bold text-gray-800 mb-8">Planes de Atención</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              nombre: "Básico",
+              precio: "$25/mes",
+              incluye: ["Consulta anual", "Vacunas"]
+            },
+            {
+              nombre: "Completo",
+              precio: "$45/mes",
+              incluye: ["Consultas ilimitadas", "Desparasitación", "Vacunas"]
+            },
+            {
+              nombre: "Premium",
+              precio: "$75/mes",
+              incluye: ["Todo lo anterior", "Cirugías menores", "Laboratorio"]
+            }
+          ].map((plan, i) => (
+            <div key={i} className="bg-white rounded-xl shadow-md p-6 border-t-4 border-teal-500">
+              <h4 className="text-xl font-bold text-teal-700 mb-2">{plan.nombre}</h4>
+              <p className="text-2xl font-semibold text-gray-800 mb-4">{plan.precio}</p>
+              <ul className="text-gray-600 space-y-1">
+                {plan.incluye.map((item, idx) => (
+                  <li key={idx}>- {item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="mt-20 max-w-4xl mx-auto">
+        <h3 className="text-3xl font-bold text-gray-800 mb-8 text-center">Preguntas Frecuentes</h3>
+        <div className="space-y-4">
+          {[{
+            pregunta: "¿Atienden emergencias?",
+            respuesta: "Sí, contamos con servicio de emergencias 24/7."
+          }, {
+            pregunta: "¿Puedo agendar una cita por WhatsApp?",
+            respuesta: "Claro, también tenemos atención por WhatsApp."
+          }, {
+            pregunta: "¿Atienden animales exóticos?",
+            respuesta: "Dependiendo del tipo, sí. Consulta disponibilidad con nuestro equipo."
+          }].map((item, i) => (
+            <div key={i} className="bg-white p-4 rounded-xl shadow-md">
+              <p className="font-semibold text-teal-700">{item.pregunta}</p>
+              <p className="text-gray-600 mt-1">{item.respuesta}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
