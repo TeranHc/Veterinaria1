@@ -18,7 +18,7 @@ export default function Servicios() {
           </p>
         </>
       ),
-      image: "/images/consulta.png",
+      image: "/images/consulta.jpg",
       altText: "Consulta general",
     },
     laboratorio: {
