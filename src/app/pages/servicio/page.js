@@ -75,7 +75,7 @@ export default function Servicios() {
           Servicios Veterinarios
         </div>
         <h2 className="text-5xl font-bold text-gray-800 mb-6 leading-tight">
-          Nuestros <span className="text-teal-600">Servicios</span>
+          Nuestros Servicios 
         </h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Cuidamos de tu mascota con atención integral, profesional y con amor. Descubre todos nuestros servicios especializados:
