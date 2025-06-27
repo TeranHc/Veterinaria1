@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className="flex flex-col min-h-screen">
         <CartProvider>
-          <Header />
-          <main className="flex-grow p-4 bg-main">{children}</main>
+          <Header className="py-10 lg:py-20"></Header>
+          <main className="flex-grow p-4 bg-main pt-40 lg:pt-30">{children}</main>
           <Footer />
         </CartProvider>
       </body>

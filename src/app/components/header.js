@@ -58,7 +58,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative shadow-2xl" style={{ backgroundColor: '#55b7b6' }}>
+      <header className="fixed top-0 left-0 right-0 z-50 shadow-2xl" style={{ backgroundColor: '#55b7b6' }}>
         {/* Patrón decorativo de fondo */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
