@@ -107,6 +107,34 @@ export default function Servicios() {
             {services[activeTab].title}
           </h3>
           {services[activeTab].description}
+          
+          <div className="mt-6">
+            <button 
+              onClick={() => {
+                // Aquí puedes manejar la navegación según el servicio activo
+                const routes = {
+                  consulta: '/servicios/consultas-generales',
+                  laboratorio: '/servicios/laboratorio',
+                  teleconsulta: '/servicios/teleconsulta',
+                  domicilio: '/servicios/consulta-domicilio'
+                };
+                
+                // Si usas Next.js router:
+                // router.push(routes[activeTab]);
+                
+                // O si usas window.location:
+                // window.location.href = routes[activeTab];
+                
+                console.log(`Navegando a: ${routes[activeTab]}`);
+              }}
+              className="bg-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-teal-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+            >
+              Solicitar {services[activeTab].title}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
