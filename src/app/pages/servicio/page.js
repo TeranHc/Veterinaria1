@@ -235,9 +235,7 @@ export default function Servicios() {
                 { nombre: "Teleconsulta", precio: "$15" },
                 { nombre: "Consulta de Emergencia", precio: "$50" }
               ],
-              color: "border-teal-500",
-              bgColor: "bg-teal-50",
-              textColor: "text-teal-600"
+              color: "border-teal-500", bgColor: "bg-teal-50", textColor: "text-teal-600"
             },
             {
               categoria: "Vacunas y Prevención",
@@ -247,9 +245,7 @@ export default function Servicios() {
                 { nombre: "Desparasitación", precio: "$12" },
                 { nombre: "Control de Pulgas", precio: "$18" }
               ],
-              color: "border-purple-500",
-              bgColor: "bg-purple-50",
-              textColor: "text-purple-600"
+              color: "border-purple-500", bgColor: "bg-purple-50", textColor: "text-purple-600"
             },
             {
               categoria: "Cuidado e Higiene",
@@ -259,9 +255,7 @@ export default function Servicios() {
                 { nombre: "Limpieza Dental", precio: "$45" },
                 { nombre: "Limpieza de Oídos", precio: "$15" }
               ],
-              color: "border-blue-500",
-              bgColor: "bg-blue-50",
-              textColor: "text-blue-600"
+              color: "border-blue-500", bgColor: "bg-blue-50", textColor: "text-blue-600"
             },
             {
               categoria: "Análisis de Laboratorio",
@@ -271,9 +265,7 @@ export default function Servicios() {
                 { nombre: "Examen Coprológico", precio: "$15" },
                 { nombre: "Perfil Bioquímico", precio: "$60" }
               ],
-              color: "border-green-500",
-              bgColor: "bg-green-50",
-              textColor: "text-green-600"
+              color: "border-green-500", bgColor: "bg-green-50", textColor: "text-green-600"
             },
             {
               categoria: "Cirugías",
@@ -283,21 +275,17 @@ export default function Servicios() {
                 { nombre: "Cirugía Menor", precio: "$120" },
                 { nombre: "Extracción Dental", precio: "$40" }
               ],
-              color: "border-red-500",
-              bgColor: "bg-red-50",
-              textColor: "text-red-600"
+              color: "border-red-500", bgColor: "bg-red-50", textColor: "text-red-600"
             },
             {
               categoria: "Servicios Especiales",
               servicios: [
-                { nombre: "Microchip", precio: "$25" },
+                { nombre: "Rehabilitación Física", precio: "$25" },
                 { nombre: "Certificado de Salud", precio: "$20" },
                 { nombre: "Eutanasia Humanitaria", precio: "$60" },
                 { nombre: "Hospitalización (día)", precio: "$40" }
               ],
-              color: "border-orange-500",
-              bgColor: "bg-orange-50",
-              textColor: "text-orange-600"
+              color: "border-orange-500", bgColor: "bg-orange-50", textColor: "text-orange-600"
             }
           ].map((categoria, i) => (
             <div key={i} className={`bg-white rounded-2xl shadow-lg p-6 border-2 ${categoria.color} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
@@ -321,27 +309,6 @@ export default function Servicios() {
           <p className="text-gray-600 text-sm">
             * Los precios pueden variar según el tamaño y condición de la mascota. Consulta por promociones especiales.
           </p>
-        </div>
-      </div>
-
-      {/* Estadísticas */}
-      <div className="mt-24 bg-gradient-to-r from-teal-500 to-teal-600 rounded-3xl p-12 max-w-6xl mx-auto text-white">
-        <h3 className="text-3xl font-bold mb-4 text-center">Nuestra experiencia en números</h3>
-        <p className="text-center text-teal-100 mb-12 text-lg max-w-2xl mx-auto">
-          Años de experiencia respaldando la salud y felicidad de miles de mascotas
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { numero: "5,000+", texto: "Mascotas atendidas" },
-            { numero: "15", texto: "Años de experiencia" },
-            { numero: "24/7", texto: "Atención disponible" },
-            { numero: "98%", texto: "Clientes satisfechos" }
-          ].map((stat, i) => (
-            <div key={i} className="transform hover:scale-105 transition-transform duration-200">
-              <div className="text-4xl font-bold mb-2">{stat.numero}</div>
-              <div className="text-teal-100">{stat.texto}</div>
-            </div>
-          ))}
         </div>
       </div>
 
