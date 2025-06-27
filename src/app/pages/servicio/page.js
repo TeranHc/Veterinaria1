@@ -219,71 +219,113 @@ export default function Servicios() {
         </div>
       </div>
 
-      {/* Planes */}
+      {/* Lista de Precios */}
       <div className="mt-24 max-w-6xl mx-auto text-center">
-        <h3 className="text-3xl font-bold text-gray-800 mb-4">Planes de Atención</h3>
+        <h3 className="text-3xl font-bold text-gray-800 mb-4">Nuestros Precios</h3>
         <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-          Elige el plan que mejor se adapte a las necesidades de tu mascota y tu presupuesto
+          Precios accesibles y transparentes para el cuidado integral de tu mascota
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              nombre: "Básico",
-              precio: "$25",
-              periodo: "/mes",
-              incluye: ["1 Consulta general", "Vacunas básicas", "Cartilla de salud"],
-              popular: false,
-              color: "border-gray-200"
+              categoria: "Consultas",
+              servicios: [
+                { nombre: "Consulta General", precio: "$25" },
+                { nombre: "Consulta a Domicilio", precio: "$40" },
+                { nombre: "Teleconsulta", precio: "$15" },
+                { nombre: "Consulta de Emergencia", precio: "$50" }
+              ],
+              color: "border-teal-500",
+              bgColor: "bg-teal-50",
+              textColor: "text-teal-600"
             },
             {
-              nombre: "Completo",
-              precio: "$45",
-              periodo: "/mes",
-              incluye: ["Consultas ilimitadas", "Todas las vacunas", "Desparasitación", "Teleconsulta"],
-              popular: true,
-              color: "border-teal-500"
+              categoria: "Vacunas y Prevención",
+              servicios: [
+                { nombre: "Vacuna Triple/Quíntuple", precio: "$20" },
+                { nombre: "Vacuna Antirrábica", precio: "$15" },
+                { nombre: "Desparasitación", precio: "$12" },
+                { nombre: "Control de Pulgas", precio: "$18" }
+              ],
+              color: "border-purple-500",
+              bgColor: "bg-purple-50",
+              textColor: "text-purple-600"
             },
             {
-              nombre: "Premium",
-              precio: "$75",
-              periodo: "/mes",
-              incluye: ["Todo lo anterior", "Cirugías menores", "Análisis de laboratorio", "Servicio a domicilio"],
-              popular: false,
-              color: "border-purple-400"
+              categoria: "Cuidado e Higiene",
+              servicios: [
+                { nombre: "Baño Completo", precio: "$30" },
+                { nombre: "Corte de Uñas", precio: "$10" },
+                { nombre: "Limpieza Dental", precio: "$45" },
+                { nombre: "Limpieza de Oídos", precio: "$15" }
+              ],
+              color: "border-blue-500",
+              bgColor: "bg-blue-50",
+              textColor: "text-blue-600"
+            },
+            {
+              categoria: "Análisis de Laboratorio",
+              servicios: [
+                { nombre: "Hemograma Completo", precio: "$35" },
+                { nombre: "Análisis de Orina", precio: "$20" },
+                { nombre: "Examen Coprológico", precio: "$15" },
+                { nombre: "Perfil Bioquímico", precio: "$60" }
+              ],
+              color: "border-green-500",
+              bgColor: "bg-green-50",
+              textColor: "text-green-600"
+            },
+            {
+              categoria: "Cirugías",
+              servicios: [
+                { nombre: "Esterilización (Hembra)", precio: "$80" },
+                { nombre: "Castración (Macho)", precio: "$60" },
+                { nombre: "Cirugía Menor", precio: "$120" },
+                { nombre: "Extracción Dental", precio: "$40" }
+              ],
+              color: "border-red-500",
+              bgColor: "bg-red-50",
+              textColor: "text-red-600"
+            },
+            {
+              categoria: "Servicios Especiales",
+              servicios: [
+                { nombre: "Microchip", precio: "$25" },
+                { nombre: "Certificado de Salud", precio: "$20" },
+                { nombre: "Eutanasia Humanitaria", precio: "$60" },
+                { nombre: "Hospitalización (día)", precio: "$40" }
+              ],
+              color: "border-orange-500",
+              bgColor: "bg-orange-50",
+              textColor: "text-orange-600"
             }
-          ].map((plan, i) => (
-            <div key={i} className={`bg-white rounded-2xl shadow-lg p-8 border-2 ${plan.color} relative hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2`}>
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    Más Popular
-                  </span>
-                </div>
-              )}
-              <div className="text-center mb-6">
-                <h4 className="text-2xl font-bold text-gray-800 mb-2">{plan.nombre}</h4>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-teal-600">{plan.precio}</span>
-                  <span className="text-lg text-gray-500 ml-1">{plan.periodo}</span>
-                </div>
+          ].map((categoria, i) => (
+            <div key={i} className={`bg-white rounded-2xl shadow-lg p-6 border-2 ${categoria.color} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1`}>
+              <div className={`${categoria.bgColor} rounded-lg p-4 mb-6`}>
+                <h4 className={`text-xl font-bold ${categoria.textColor} text-center`}>
+                  {categoria.categoria}
+                </h4>
               </div>
-              <ul className="space-y-3 mb-8">
-                {plan.incluye.map((item, idx) => (
-                  <li key={idx} className="flex items-center text-gray-700">
-                    <span className="text-teal-500 mr-3 text-lg">✓</span>
-                    {item}
-                  </li>
+              <div className="space-y-3">
+                {categoria.servicios.map((servicio, idx) => (
+                  <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
+                    <span className="text-gray-700 font-medium text-sm">{servicio.nombre}</span>
+                    <span className={`font-bold text-lg ${categoria.textColor}`}>{servicio.precio}</span>
+                  </div>
                 ))}
-              </ul>
-              <button className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
-                plan.popular 
-                  ? 'bg-teal-500 text-white hover:bg-teal-600 shadow-lg' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}>
-                Elegir Plan
-              </button>
+              </div>
+              <div className="mt-6">
+                <button className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-200 ${categoria.textColor} border-2 ${categoria.color} hover:${categoria.bgColor}`}>
+                  Solicitar Servicio
+                </button>
+              </div>
             </div>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <p className="text-gray-600 text-sm">
+            * Los precios pueden variar según el tamaño y condición de la mascota. Consulta por promociones especiales.
+          </p>
         </div>
       </div>
 
@@ -328,8 +370,8 @@ export default function Servicios() {
             pregunta: "¿Qué incluye el servicio a domicilio?",
             respuesta: "El servicio a domicilio incluye consulta general, vacunación, toma de muestras para laboratorio y seguimiento de tratamientos. Llevamos todo el equipo necesario a tu hogar."
           }, {
-            pregunta: "¿Ofrecen planes de pago para tratamientos costosos?",
-            respuesta: "Sí, ofrecemos diferentes opciones de financiamiento y planes de pago flexibles para tratamientos de mayor costo. Consulta con nuestro equipo las opciones disponibles."
+            pregunta: "¿Ofrecen descuentos para múltiples mascotas?",
+            respuesta: "Sí, ofrecemos descuentos especiales para familias con múltiples mascotas y paquetes promocionales para servicios regulares. Consulta con nuestro equipo las opciones disponibles."
           }].map((item, i) => (
             <div key={i} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-start gap-4">
@@ -343,36 +385,6 @@ export default function Servicios() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* CTA Final */}
-      <div className="mt-24 max-w-4xl mx-auto text-center bg-white rounded-3xl shadow-2xl p-12 border border-gray-100">
-        <h3 className="text-4xl font-bold text-gray-800 mb-4">¿Listo para cuidar a tu mascota?</h3>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Agenda tu primera consulta hoy mismo y descubre por qué somos la mejor opción para el cuidado veterinario de tu compañero
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-teal-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-teal-600 transition-colors duration-200 shadow-lg hover:shadow-xl">
-            Agendar Cita Ahora
-          </button>
-          <button className="border-2 border-teal-500 text-teal-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-teal-50 transition-colors duration-200">
-            Contactar por WhatsApp
-          </button>
-        </div>
-        <div className="mt-8 flex items-center justify-center gap-6 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <span className="text-green-500">✓</span>
-            Primera consulta con descuento
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-green-500">✓</span>
-            Sin compromiso
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-green-500">✓</span>
-            Atención inmediata
-          </div>
         </div>
       </div>
     </section>
