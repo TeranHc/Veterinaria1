@@ -313,12 +313,7 @@ export default function Servicios() {
                     <span className={`font-bold text-lg ${categoria.textColor}`}>{servicio.precio}</span>
                   </div>
                 ))}
-              </div>
-              <div className="mt-6">
-                <button className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-200 ${categoria.textColor} border-2 ${categoria.color} hover:${categoria.bgColor}`}>
-                  Solicitar Servicio
-                </button>
-              </div>
+              </div>           
             </div>
           ))}
         </div>
