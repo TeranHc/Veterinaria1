@@ -69,49 +69,63 @@ export default function Servicios() {
   };
 
   return (
-    <section className="py-16 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Nuestros Servicios</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Cuidamos de tu mascota con atención integral, profesional y con amor. Elige el servicio que necesitas:
+    <section className="py-20 px-6 bg-gradient-to-br from-gray-50 via-white to-teal-50">
+      <div className="max-w-6xl mx-auto text-center mb-16">
+        <div className="inline-block bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          Servicios Veterinarios
+        </div>
+        <h2 className="text-5xl font-bold text-gray-800 mb-6 leading-tight">
+          Nuestros <span className="text-teal-600">Servicios</span>
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Cuidamos de tu mascota con atención integral, profesional y con amor. Descubre todos nuestros servicios especializados:
         </p>
       </div>
 
-      <div className="flex justify-center flex-wrap gap-4 mb-10">
+      <div className="flex justify-center flex-wrap gap-3 mb-16">
         {Object.keys(services).map((key) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`px-6 py-3 rounded-full font-medium uppercase tracking-wide transition-all duration-200 border ${
+            className={`px-8 py-4 rounded-2xl font-semibold tracking-wide transition-all duration-300 border-2 transform hover:scale-105 ${
               activeTab === key
-                ? "bg-teal-500 text-white border-teal-500 shadow-md"
-                : "bg-white text-teal-600 border-teal-300 hover:bg-teal-100"
+                ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white border-teal-500 shadow-lg shadow-teal-200"
+                : "bg-white text-teal-600 border-teal-200 hover:bg-teal-50 hover:border-teal-300 shadow-md hover:shadow-lg"
             }`}
           >
-            {services[key].title}
+            <span className="text-lg">{services[key].title}</span>
           </button>
         ))}
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto">
-        <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-teal-400 shadow-inner">
-          <img
-            src={services[activeTab].image}
-            alt={services[activeTab].altText}
-            className="w-full h-full object-cover"
-          />
+      <div className="bg-white rounded-3xl shadow-2xl p-12 flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto border border-gray-100 backdrop-blur-sm">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-600 rounded-full blur-lg opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
+          <div className="relative w-60 h-60 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-100 to-teal-200 opacity-20"></div>
+            <img
+              src={services[activeTab].image}
+              alt={services[activeTab].altText}
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
         </div>
 
-        <div className="text-left flex-1">
-          <h3 className="text-2xl font-semibold text-teal-700 mb-3">
-            {services[activeTab].title}
-          </h3>
-          {services[activeTab].description}
+        <div className="text-left flex-1 space-y-6">
+          <div className="space-y-3">
+            <h3 className="text-3xl font-bold text-gray-800 mb-2">
+              {services[activeTab].title}
+            </h3>
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full"></div>
+          </div>
           
-          <div className="mt-6">
+          <div className="text-gray-700 text-lg leading-relaxed">
+            {services[activeTab].description}
+          </div>
+          
+          <div className="pt-4">
             <button 
               onClick={() => {
-                // Aquí puedes manejar la navegación según el servicio activo
                 const routes = {
                   consulta: '/servicios/consultas-generales',
                   laboratorio: '/servicios/laboratorio',
@@ -119,20 +133,18 @@ export default function Servicios() {
                   domicilio: '/servicios/consulta-domicilio'
                 };
                 
-                // Si usas Next.js router:
-                // router.push(routes[activeTab]);
-                
-                // O si usas window.location:
-                // window.location.href = routes[activeTab];
-                
                 console.log(`Navegando a: ${routes[activeTab]}`);
               }}
-              className="bg-teal-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-teal-600 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 inline-flex items-center gap-2"
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 overflow-hidden"
             >
-              Solicitar {services[activeTab].title}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <span className="relative z-10">Solicitar {services[activeTab].title}</span>
+              <div className="relative z-10 w-5 h-5 bg-white bg-opacity-20 rounded-full flex items-center justify-center group-hover:bg-opacity-30 transition-all duration-300">
+                <svg className="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             </button>
           </div>
         </div>
