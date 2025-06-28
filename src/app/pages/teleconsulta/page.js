@@ -20,6 +20,7 @@ export default function AgendarTeleconsulta() {
 
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState({});
+  const [isBooked, setIsBooked] = useState(false);
 
   const horarios = [
     "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", 
@@ -81,8 +82,40 @@ export default function AgendarTeleconsulta() {
     e.preventDefault();
     if (validateStep(3)) {
       console.log("Datos de teleconsulta:", formData);
-      alert("¡Teleconsulta agendada exitosamente! Recibirás un email con los detalles de conexión.");
+      setIsBooked(true);
     }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      nombrePropietario: "",
+      telefono: "",
+      email: "",
+      nombreMascota: "",
+      especie: "",
+      raza: "",
+      edad: "",
+      sexo: "",
+      fecha: "",
+      hora: "",
+      motivoConsulta: "",
+      descripcionSintomas: "",
+      medicamentos: "",
+      consultaUrgente: false
+    });
+    setStep(1);
+    setIsBooked(false);
+    setErrors({});
+  };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('es-ES', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
   };
 
   const getMinDate = () => {
@@ -95,55 +128,57 @@ export default function AgendarTeleconsulta() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-blue-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-block bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Agendar Teleconsulta
-          </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Consulta Veterinaria Virtual
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Programa tu consulta veterinaria desde casa. Atención profesional a través de videollamada.
-          </p>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between max-w-md mx-auto">
-            {[1, 2, 3].map((number) => (
-              <div key={number} className="flex items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
-                  step >= number 
-                    ? 'bg-teal-500 text-white shadow-lg' 
-                    : 'bg-gray-200 text-gray-500'
-                }`}>
-                  {number}
-                </div>
-                {number < 3 && (
-                  <div className={`w-16 h-1 mx-2 transition-all duration-300 ${
-                    step > number ? 'bg-teal-500' : 'bg-gray-200'
-                  }`}></div>
-                )}
+        {!isBooked ? (
+          <>
+            {/* Header */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                Agendar Teleconsulta
               </div>
-            ))}
-          </div>
-          <div className="flex justify-between max-w-md mx-auto mt-2 text-sm">
-            <span className={step >= 1 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
-              Datos Personales
-            </span>
-            <span className={step >= 2 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
-              Información Mascota
-            </span>
-            <span className={step >= 3 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
-              Cita y Motivo
-            </span>
-          </div>
-        </div>
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                Consulta Veterinaria Virtual
+              </h1>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Programa tu consulta veterinaria desde casa. Atención profesional a través de videollamada.
+              </p>
+            </div>
 
-        {/* Form Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-          <div>
+            {/* Progress Bar */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between max-w-md mx-auto">
+                {[1, 2, 3].map((number) => (
+                  <div key={number} className="flex items-center">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                      step >= number 
+                        ? 'bg-teal-500 text-white shadow-lg' 
+                        : 'bg-gray-200 text-gray-500'
+                    }`}>
+                      {number}
+                    </div>
+                    {number < 3 && (
+                      <div className={`w-16 h-1 mx-2 transition-all duration-300 ${
+                        step > number ? 'bg-teal-500' : 'bg-gray-200'
+                      }`}></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-between max-w-md mx-auto mt-2 text-sm">
+                <span className={step >= 1 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
+                  Datos Personales
+                </span>
+                <span className={step >= 2 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
+                  Información Mascota
+                </span>
+                <span className={step >= 3 ? 'text-teal-600 font-semibold' : 'text-gray-500'}>
+                  Cita y Motivo
+                </span>
+              </div>
+            </div>
+
+            {/* Form Card */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+              <div>
             {/* Step 1: Datos Personales */}
             {step === 1 && (
               <div className="space-y-6">
@@ -499,24 +534,122 @@ export default function AgendarTeleconsulta() {
               </div>
             )}
           </div>
-        </div>
-
-        {/* Information Card */}
-        <div className="mt-8 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-6 text-white">
-          <div className="flex items-center space-x-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
             </div>
-            <div>
-              <h3 className="font-bold text-lg">Teleconsulta Veterinaria</h3>
-              <p className="text-teal-100">
-                Duración: 30 minutos | Costo: $25 | Incluye: Diagnóstico inicial y recomendaciones
+
+            {/* Information Card */}
+            <div className="mt-8 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl p-6 text-white">
+              <div className="flex items-center space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Teleconsulta Veterinaria</h3>
+                  <p className="text-teal-100">
+                    Duración: 30 minutos | Costo: $25 | Incluye: Diagnóstico inicial y recomendaciones
+                  </p>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          /* Confirmation Screen */
+          <div className="max-w-2xl mx-auto text-center">
+            {/* Success Icon */}
+            <div className="mb-8">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                ¡Cita Agendada Exitosamente!
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                Hemos recibido tu solicitud para una teleconsulta. Te contactaremos pronto para confirmar los detalles.
+              </p>
+            </div>
+
+            {/* Appointment Summary */}
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-8 mb-8">
+              <h3 className="text-xl font-bold text-green-800 mb-6">Resumen de tu cita:</h3>
+              
+              <div className="space-y-4 text-left">
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Propietario:</span>
+                  <span className="text-green-800">{formData.nombrePropietario}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Mascota:</span>
+                  <span className="text-green-800">{formData.nombreMascota}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Especie:</span>
+                  <span className="text-green-800">{formData.especie}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Fecha:</span>
+                  <span className="text-green-800">{formatDate(formData.fecha)}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Hora:</span>
+                  <span className="text-green-800">{formData.hora}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Teléfono:</span>
+                  <span className="text-green-800">{formData.telefono}</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold text-green-700">Email:</span>
+                  <span className="text-green-800">{formData.email}</span>
+                </div>
+                
+                {formData.motivoConsulta && (
+                  <div className="flex justify-between items-start">
+                    <span className="font-semibold text-green-700">Motivo:</span>
+                    <span className="text-green-800 text-right max-w-xs">
+                      {formData.motivoConsulta.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Next Steps */}
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+              <h4 className="font-bold text-blue-800 mb-3">Próximos pasos:</h4>
+              <ul className="text-sm text-blue-700 text-left space-y-2">
+                <li>• Recibirás un email de confirmación en los próximos minutos</li>
+                <li>• Te enviaremos el enlace de la videollamada 30 minutos antes</li>
+                <li>• Nuestro equipo te contactará si necesita información adicional</li>
+                <li>• Prepara el historial médico de tu mascota para la consulta</li>
+              </ul>
+            </div>
+
+            {/* Action Button */}
+            <button
+              onClick={resetForm}
+              className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Agendar Otra Cita
+            </button>
+
+            {/* Contact Info */}
+            <div className="mt-8 text-center">
+              <p className="text-gray-600">
+                ¿Tienes alguna pregunta? Contáctanos al{' '}
+                <span className="font-semibold text-teal-600">(04) 123-4567</span>
               </p>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
