@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // para app router (si estás en app/)
 
 export default function Servicios() {
   const [activeTab, setActiveTab] = useState("consulta");
+  const router = useRouter(); // inicializa el router
 
   const services = {
     consulta: {
@@ -127,13 +129,15 @@ export default function Servicios() {
             <button 
               onClick={() => {
                 const routes = {
-                  consulta: '/pages/servicio/generales.js',
+                  consulta: '/servicio/generales',
                   laboratorio: '/servicios/laboratorio',
                   teleconsulta: '/servicios/teleconsulta',
                   domicilio: '/servicios/consulta-domicilio'
                 };
-                
-                console.log(`Navegando a: ${routes[activeTab]}`);
+
+                const route = routes[activeTab];
+                console.log(`Navegando a: ${route}`);
+                router.push(route);
               }}
               className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 overflow-hidden"
             >
