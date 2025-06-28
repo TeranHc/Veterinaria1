@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function ServiciosTeleconsulta() {
+export default function Teleconsulta() {
   const [formData, setFormData] = useState({
     nombreMascota: "",
     nombreDueno: "",
@@ -9,12 +9,17 @@ export default function ServiciosTeleconsulta() {
     email: "",
     tipoMascota: "",
     edad: "",
-    sintomas: "",
-    motivoConsulta: "",
-    preferenciaContacto: "",
+    peso: "",
+    raza: "",
     fecha: "",
     hora: "",
+    motivoConsulta: "",
+    sintomas: "",
+    medicamentosActuales: "",
+    veterinarioPreferido: "",
+    antecedentesMedicos: "",
     urgencia: "normal",
+    plataforma: "zoom"
   });
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -22,16 +27,16 @@ export default function ServiciosTeleconsulta() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowConfirmation(true);
-    console.log("Datos de teleconsulta:", formData);
+    console.log("Datos de la teleconsulta:", formData);
   };
 
   const nextStep = () => {
@@ -44,14 +49,16 @@ export default function ServiciosTeleconsulta() {
 
   const horarios = [
     "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00",
-    "14:00", "14:30", "15:00", "15:30", "16:00",
+    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"
   ];
 
   const tiposMascota = [
-    "Perro", "Gato", "Conejo", "Ave", "Roedor", "Reptil", "Otro",
+    "Perro", "Gato", "Conejo", "Ave", "Roedor", "Reptil", "Otro"
   ];
 
-  const preferenciasContacto = ["Videollamada (WhatsApp)", "Llamada Telefónica", "Google Meet", "Otro"];
+  const plataformas = [
+    "Zoom", "Google Meet", "Microsoft Teams"
+  ];
 
   if (showConfirmation) {
     return (
@@ -63,16 +70,19 @@ export default function ServiciosTeleconsulta() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Teleconsulta Agendada!</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">¡Teleconsulta Agendada Exitosamente!</h2>
             <p className="text-gray-600 mb-8 text-lg">
-              Hemos recibido tu solicitud de teleconsulta. Un veterinario se pondrá en contacto contigo según tus preferencias.
+              Hemos recibido tu solicitud de teleconsulta. Te enviaremos un enlace a la plataforma {formData.plataforma} antes de la cita.
             </p>
-            <div className="bg-blue-50 rounded-2xl p-6 mb-8 text-left text-sm">
-              <p><span className="font-medium">Mascota:</span> {formData.nombreMascota}</p>
-              <p><span className="font-medium">Fecha:</span> {formData.fecha}</p>
-              <p><span className="font-medium">Hora:</span> {formData.hora}</p>
-              <p><span className="font-medium">Contacto:</span> {formData.preferenciaContacto}</p>
-              <p><span className="font-medium">Urgencia:</span> {formData.urgencia}</p>
+            <div className="bg-blue-50 rounded-2xl p-6 mb-8">
+              <h3 className="font-semibold text-blue-800 mb-3">Resumen de tu solicitud:</h3>
+              <div className="text-left space-y-2 text-sm">
+                <p><span className="font-medium">Mascota:</span> {formData.nombreMascota}</p>
+                <p><span className="font-medium">Fecha:</span> {formData.fecha}</p>
+                <p><span className="font-medium">Hora:</span> {formData.hora}</p>
+                <p><span className="font-medium">Plataforma:</span> {formData.plataforma}</p>
+                <p><span className="font-medium">Urgencia:</span> {formData.urgencia}</p>
+              </div>
             </div>
             <button
               onClick={() => {
@@ -80,13 +90,15 @@ export default function ServiciosTeleconsulta() {
                 setCurrentStep(1);
                 setFormData({
                   nombreMascota: "", nombreDueno: "", telefono: "", email: "",
-                  tipoMascota: "", edad: "", sintomas: "", motivoConsulta: "",
-                  preferenciaContacto: "", fecha: "", hora: "", urgencia: "normal"
+                  tipoMascota: "", edad: "", peso: "", raza: "", fecha: "", hora: "",
+                  motivoConsulta: "", sintomas: "", medicamentosActuales: "",
+                  veterinarioPreferido: "", antecedentesMedicos: "", urgencia: "normal",
+                  plataforma: "zoom"
                 });
               }}
               className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-2xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300"
             >
-              Agendar Otra Cita
+              Agendar Otra Teleconsulta
             </button>
           </div>
         </div>
@@ -100,11 +112,11 @@ export default function ServiciosTeleconsulta() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-            Servicio de Teleconsulta
+            Servicios de Teleconsulta
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Consulta Veterinaria en Línea</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Consulta Veterinaria Virtual</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Atención veterinaria desde la comodidad de tu hogar.
+            Atención veterinaria profesional desde la comodidad de tu hogar
           </p>
         </div>
 
@@ -130,77 +142,338 @@ export default function ServiciosTeleconsulta() {
           </div>
           <div className="flex justify-center space-x-24 mt-4">
             <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'}`}>
-              Datos Básicos
+              Información Básica
             </span>
             <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'}`}>
-              Detalles de Consulta
+              Detalles Médicos
             </span>
             <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-500'}`}>
-              Fecha y Confirmación
+              Fecha y Plataforma
             </span>
           </div>
         </div>
 
-        {/* Formulario */}
+        {/* Form */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
           <div>
-            {/* Paso 1 */}
+            {/* Step 1: Información Básica */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold text-gray-800 mb-6">Información del Paciente</h3>
+                
                 <div className="grid md:grid-cols-2 gap-6">
-                  <inputField name="nombreMascota" label="Nombre de la Mascota *" placeholder="Ej: Max, Luna..." />
-                  <inputField name="nombreDueno" label="Nombre del Dueño *" placeholder="Tu nombre completo" />
-                  <inputField name="telefono" label="Teléfono *" type="tel" placeholder="Ej: +593 99 123 4567" />
-                  <inputField name="email" label="Email" type="email" placeholder="tu@email.com" />
-                  <selectField name="tipoMascota" label="Tipo de Mascota *" options={tiposMascota} />
-                  <inputField name="edad" label="Edad de la Mascota *" placeholder="Ej: 2 años, 6 meses..." />
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Nombre de la Mascota *
+                    </label>
+                    <input
+                      type="text"
+                      name="nombreMascota"
+                      value={formData.nombreMascota}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Ej: Max, Luna, Toby..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Nombre del Dueño *
+                    </label>
+                    <input
+                      type="text"
+                      name="nombreDueno"
+                      value={formData.nombreDueno}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Tu nombre completo"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Teléfono *
+                    </label>
+                    <input
+                      type="tel"
+                      name="telefono"
+                      value={formData.telefono}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Ej: +593 99 123 4567"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Tipo de Mascota *
+                    </label>
+                    <select
+                      name="tipoMascota"
+                      value={formData.tipoMascota}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    >
+                      <option value="">Selecciona el tipo</option>
+                      {tiposMascota.map(tipo => (
+                        <option key={tipo} value={tipo}>{tipo}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Raza
+                    </label>
+                    <input
+                      type="text"
+                      name="raza"
+                      value={formData.raza}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Ej: Golden Retriever, Mestizo..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Edad *
+                    </label>
+                    <input
+                      type="text"
+                      name="edad"
+                      value={formData.edad}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Ej: 2 años, 6 meses..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Peso (kg)
+                    </label>
+                    <input
+                      type="number"
+                      name="peso"
+                      value={formData.peso}
+                      onChange={handleInputChange}
+                      step="0.1"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                      placeholder="Ej: 15.5"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Veterinario Preferido (si aplica)
+                  </label>
+                  <input
+                    type="text"
+                    name="veterinarioPreferido"
+                    value={formData.veterinarioPreferido}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    placeholder="Nombre del veterinario preferido"
+                  />
                 </div>
               </div>
             )}
 
-            {/* Paso 2 */}
+            {/* Step 2: Detalles Médicos */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Detalles de la Teleconsulta</h3>
-                <textareaField name="motivoConsulta" label="Motivo de la Consulta *" placeholder="Describe brevemente la razón de la consulta..." />
-                <textareaField name="sintomas" label="Síntomas que presenta la mascota" placeholder="Ej: Vómitos, falta de apetito, cojera..." />
-                <selectField name="preferenciaContacto" label="Preferencia de Contacto *" options={preferenciasContacto} />
-                <selectField name="urgencia" label="Nivel de Urgencia" options={["Normal", "Urgente", "Emergencia"]} />
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Detalles de la Consulta</h3>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Motivo de la Consulta *
+                    </label>
+                    <textarea
+                      name="motivoConsulta"
+                      value={formData.motivoConsulta}
+                      onChange={handleInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
+                      placeholder="Describe el motivo de la consulta..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Síntomas Observados
+                    </label>
+                    <textarea
+                      name="sintomas"
+                      value={formData.sintomas}
+                      onChange={handleInputChange}
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
+                      placeholder="Síntomas que presenta la mascota..."
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Medicamentos Actuales
+                  </label>
+                  <textarea
+                    name="medicamentosActuales"
+                    value={formData.medicamentosActuales}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
+                    placeholder="Lista de medicamentos que está tomando actualmente..."
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Antecedentes Médicos
+                  </label>
+                  <textarea
+                    name="antecedentesMedicos"
+                    value={formData.antecedentesMedicos}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
+                    placeholder="Enfermedades previas, cirugías, alergias..."
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Nivel de Urgencia
+                  </label>
+                  <select
+                    name="urgencia"
+                    value={formData.urgencia}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                  >
+                    <option value="normal">Normal (2-3 días)</option>
+                    <option value="urgente">Urgente (24 horas)</option>
+                    <option value="emergencia">Emergencia (Inmediato)</option>
+                  </select>
+                </div>
               </div>
             )}
 
-            {/* Paso 3 */}
+            {/* Step 3: Fecha y Plataforma */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Fecha y Hora</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">Fecha y Plataforma</h3>
+                
                 <div className="grid md:grid-cols-2 gap-6">
-                  <inputField name="fecha" label="Fecha Preferida *" type="date" min={new Date().toISOString().split('T')[0]} />
-                  <selectField name="hora" label="Hora Preferida *" options={horarios} />
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Fecha Preferida *
+                    </label>
+                    <input
+                      type="date"
+                      name="fecha"
+                      value={formData.fecha}
+                      onChange={handleInputChange}
+                      required
+                      min={new Date().toISOString().split('T')[0]}
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Hora Preferida *
+                    </label>
+                    <select
+                      name="hora"
+                      value={formData.hora}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                    >
+                      <option value="">Selecciona una hora</option>
+                      {horarios.map(hora => (
+                        <option key={hora} value={hora}>{hora}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Plataforma de Videoconferencia *
+                  </label>
+                  <select
+                    name="plataforma"
+                    value={formData.plataforma}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                  >
+                    {plataformas.map(plataforma => (
+                      <option key={plataforma} value={plataforma.toLowerCase()}>{plataforma}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="bg-amber-50 rounded-2xl p-6">
+                  <h4 className="font-semibold text-amber-800 mb-3">⚠️ Instrucciones Importantes:</h4>
+                  <ul class11Name="space-y-2 text-sm text-amber-700">
+                    <li>• Asegúrate de tener una conexión a internet estable</li>
+                    <li>• Usa un dispositivo con cámara y micrófono funcionales</li>
+                    <li>• Coloca a tu mascota en un lugar tranquilo y bien iluminado</li>
+                    <li>• Ten a la mano el historial médico y medicamentos actuales</li>
+                    <li>• Recibirás el enlace de la videoconferencia por email</li>
+                  </ul>
                 </div>
 
                 <div className="bg-blue-50 rounded-2xl p-6">
-                  <h4 className="font-semibold text-blue-800 mb-2">Resumen:</h4>
-                  <div className="text-sm text-blue-700 space-y-1">
-                    <p><strong>Mascota:</strong> {formData.nombreMascota}</p>
-                    <p><strong>Dueño:</strong> {formData.nombreDueno}</p>
-                    <p><strong>Fecha:</strong> {formData.fecha}</p>
-                    <p><strong>Hora:</strong> {formData.hora}</p>
-                    <p><strong>Motivo:</strong> {formData.motivoConsulta}</p>
-                    <p><strong>Urgencia:</strong> {formData.urgencia}</p>
-                    <p><strong>Preferencia:</strong> {formData.preferenciaContacto}</p>
+                  <h4 className="font-semibold text-blue-800 mb-2">Resumen de la Teleconsulta:</h4>
+                  <div className="space-y-1 text-sm text-blue-700">
+                    <p><span className="font-medium">Mascota:</span> {formData.nombreMascota} ({formData.tipoMascota})</p>
+                    <p><span className="font-medium">Dueño:</span> {formData.nombreDueno}</p>
+                    <p><span className="font-medium">Fecha:</span> {formData.fecha}</p>
+                    <p><span className="font-medium">Hora:</span> {formData.hora}</p>
+                    <p><span className="font-medium">Plataforma:</span> {formData.plataforma}</p>
+                    <p><span className="font-medium">Urgencia:</span> {formData.urgencia}</p>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Botones */}
+            {/* Navigation Buttons */}
             <div className="flex justify-between pt-8">
               <button
                 type="button"
                 onClick={prevStep}
                 className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
-                  currentStep === 1 ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  currentStep === 1
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                 }`}
                 disabled={currentStep === 1}
               >
@@ -211,7 +484,7 @@ export default function ServiciosTeleconsulta() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-2xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-2xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
                   Siguiente
                 </button>
@@ -219,7 +492,7 @@ export default function ServiciosTeleconsulta() {
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-2xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-2xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
                   Confirmar Teleconsulta
                 </button>
@@ -230,60 +503,4 @@ export default function ServiciosTeleconsulta() {
       </div>
     </div>
   );
-
-  // Componentes auxiliares
-  function inputField({ name, label, type = "text", placeholder = "", min }) {
-    return (
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">{label}</label>
-        <input
-          type={type}
-          name={name}
-          value={formData[name]}
-          onChange={handleInputChange}
-          required={label.includes("*")}
-          min={min}
-          className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
-          placeholder={placeholder}
-        />
-      </div>
-    );
-  }
-
-  function selectField({ name, label, options }) {
-    return (
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">{label}</label>
-        <select
-          name={name}
-          value={formData[name]}
-          onChange={handleInputChange}
-          required={label.includes("*")}
-          className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
-        >
-          <option value="">Selecciona una opción</option>
-          {options.map((op) => (
-            <option key={op} value={op}>{op}</option>
-          ))}
-        </select>
-      </div>
-    );
-  }
-
-  function textareaField({ name, label, placeholder }) {
-    return (
-      <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">{label}</label>
-        <textarea
-          name={name}
-          value={formData[name]}
-          onChange={handleInputChange}
-          rows={4}
-          required={label.includes("*")}
-          className="w-full px-4 py-3 rounded-2xl border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300 resize-none"
-          placeholder={placeholder}
-        />
-      </div>
-    );
-  }
 }
