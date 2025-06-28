@@ -129,10 +129,10 @@ export default function Servicios() {
             <button 
               onClick={() => {
                 const routes = {
-                  consulta: 'src\app\pages\servicios\generales.js',
-                  laboratorio: '/servicios/laboratorio',
-                  teleconsulta: '/servicios/teleconsulta',
-                  domicilio: '/servicios/consulta-domicilio'
+                  consulta: 'src/app/pages/servicios/page.js',
+                  laboratorio: 'src/app/pages/servicios/page',
+                  teleconsulta: '/pages/servicios/page',
+                  domicilio: '/pages/servicios'
                 };
 
                 const route = routes[activeTab];
