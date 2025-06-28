@@ -127,7 +127,7 @@ export default function Servicios() {
             <button 
               onClick={() => {
                 const routes = {
-                  consulta: '/servicios/consultas-generales',
+                  consulta: '/pages/servicio/generales.js',
                   laboratorio: '/servicios/laboratorio',
                   teleconsulta: '/servicios/teleconsulta',
                   domicilio: '/servicios/consulta-domicilio'
