@@ -131,8 +131,8 @@ export default function Servicios() {
                 const routes = {
                   consulta: '/pages/servicios',
                   laboratorio: '/pages/laboratorio',
-                  teleconsulta: '/pages/servicios',
-                  domicilio: '/pages/servicios'
+                  teleconsulta: '/pages/teleconsulta',
+                  domicilio: '/pages/domicilio'
                 };
 
                 const route = routes[activeTab];
