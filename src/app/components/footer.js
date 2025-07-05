@@ -69,7 +69,7 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-orange-500">SERVICIO</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="/faq" className="hover:text-orange-500 transition-colors">
+                  <a href="/pages/devoluciones" className="hover:text-orange-500 transition-colors">
                     FAQ
                   </a>
                 </div>
