@@ -89,7 +89,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>
-                  <a href="/terminos-condiciones" className="hover:text-orange-500 transition-colors">
+                  <a href="\pages\condiciones" className="hover:text-orange-500 transition-colors">
                     Términos y condiciones
                   </a>
                 </div>
