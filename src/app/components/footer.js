@@ -39,10 +39,10 @@ export default function Footer() {
 
             {/* Sección INDEX */}
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold mb-4 text-orange-500">INDEX</h3>
+              <h3 className="text-xl font-bold mb-4 text-black-500">INDEX</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="/" className="hover:text-orange-500 transition-colors">
+                  <a href="/" className="hover:text-yellow-500 transition-colors">
                     Inicio
                   </a>
                 </div>
