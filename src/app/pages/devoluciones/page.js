@@ -351,4 +351,5 @@ const StorePoliciesPage = () => {
   );
 };
 
+
 export default StorePoliciesPage;
