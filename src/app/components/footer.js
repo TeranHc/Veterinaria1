@@ -47,13 +47,13 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>
-                  <a href="/tienda" className="hover:text-orange-500 transition-colors">
+                  <a href="/pages/tienda-canina" className="hover:text-orange-500 transition-colors">
                     Tienda
                   </a>
                 </div>
                 <div>
-                  <a href="/acerca-de" className="hover:text-orange-500 transition-colors">
-                    Acerca de
+                  <a href="/pages/nosotros" className="hover:text-orange-500 transition-colors">
+                    Nosotros
                   </a>
                 </div>
                 <div>
