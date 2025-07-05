@@ -79,7 +79,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>
-                  <a href="/politica-tienda" className="hover:text-orange-500 transition-colors">
+                  <a href="pages/politicas" className="hover:text-orange-500 transition-colors">
                     Política de la tienda
                   </a>
                 </div>
