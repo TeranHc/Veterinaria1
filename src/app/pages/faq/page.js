@@ -1,166 +1,265 @@
-"use client";
+'use client';
 
-import { useState } from 'react';
-import {
-  Shield,
-  Eye,
-  Lock,
-  CreditCard,
-  Users,
-  Heart,
-  FileText,
-  ChevronDown,
-  ChevronUp,
-  AlertTriangle,
-  CheckCircle,
-  Scale,
-} from 'lucide-react';
+import React from 'react';
+import { Shield, Eye, Lock, Users, Mail, Phone } from 'lucide-react';
 
-export default function PoliticasTienda() {
-  const [activePolicy, setActivePolicy] = useState(null);
-
-  const togglePolicy = (id) => {
-    setActivePolicy(activePolicy === id ? null : id);
-  };
-
+const PrivacyPolicy = () => {
   return (
-    <section className="bg-white text-gray-800 min-h-screen">
-      {/* Encabezado decorativo */}
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 py-16 text-white text-center">
-        <h1 className="text-4xl font-bold uppercase mb-2">Políticas de la Tienda</h1>
-        <p className="text-lg opacity-90">Conoce nuestras condiciones para una experiencia confiable y transparente</p>
-      </div>
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <Shield className="h-16 w-16 text-blue-600" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Políticas de Privacidad
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            En PetVet Care nos comprometemos a proteger tu privacidad y la de tus mascotas. 
+            Conoce cómo recopilamos, utilizamos y protegemos tu información personal.
+          </p>
+          <p className="text-sm text-gray-500 mt-4">
+            Última actualización: {new Date().toLocaleDateString('es-ES')}
+          </p>
+        </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-12">
-        {/* Resumen visual de principios */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-teal-50 p-6 rounded-lg shadow">
-            <CheckCircle className="w-8 h-8 text-teal-600 mb-2" />
-            <h3 className="font-semibold text-teal-800 mb-1">Calidad Garantizada</h3>
-            <p className="text-sm text-gray-700">
-              Ofrecemos productos certificados y servicios veterinarios profesionales para garantizar el bienestar de tu mascota.
-            </p>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg shadow">
-            <Shield className="w-8 h-8 text-blue-600 mb-2" />
-            <h3 className="font-semibold text-blue-800 mb-1">Seguridad y Confianza</h3>
-            <p className="text-sm text-gray-700">
-              Protegemos tus datos con cifrado avanzado y cumplimos con normativas de privacidad.
-            </p>
-          </div>
-          <div className="bg-purple-50 p-6 rounded-lg shadow">
-            <Heart className="w-8 h-8 text-purple-600 mb-2" />
-            <h3 className="font-semibold text-purple-800 mb-1">Atención Humana</h3>
-            <p className="text-sm text-gray-700">
-              Brindamos soporte empático y personalizado en cada etapa de tu experiencia.
+        {/* Content */}
+        <div className="bg-white rounded-lg shadow-lg p-8 space-y-8">
+
+          {/* Sección 1 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Eye className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">1. Información que Recopilamos</h2>
+            </div>
+            <div className="space-y-4 text-gray-700">
+              <h3 className="text-lg font-semibold">Información Personal</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Nombre completo, dirección de correo electrónico y número de teléfono</li>
+                <li>Dirección de domicilio para entregas de productos</li>
+                <li>Información de pago (procesada de forma segura por terceros)</li>
+                <li>Historial de compras y preferencias de productos</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold mt-6">Información de Mascotas</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Nombre, raza, edad y peso de la mascota</li>
+                <li>Historial médico y veterinario</li>
+                <li>Alergias alimentarias y necesidades dietéticas especiales</li>
+                <li>Fotografías (solo si las proporcionas voluntariamente)</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold mt-6">Información Técnica</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Dirección IP y datos de navegación</li>
+                <li>Tipo de dispositivo y navegador utilizado</li>
+                <li>Cookies y tecnologías similares</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Sección 2 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Lock className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">2. Cómo Utilizamos tu Información</h2>
+            </div>
+            <div className="space-y-4 text-gray-700">
+              <h3 className="text-lg font-semibold">Servicios Veterinarios</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Programar y gestionar citas veterinarias</li>
+                <li>Mantener historiales médicos de mascotas</li>
+                <li>Enviar recordatorios de vacunas y tratamientos</li>
+                <li>Comunicar resultados de exámenes y diagnósticos</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold mt-6">Venta de Productos</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Procesar pedidos y gestionar entregas</li>
+                <li>Recomendar productos según las necesidades de tu mascota</li>
+                <li>Gestionar devoluciones y garantías</li>
+                <li>Enviar notificaciones sobre productos y ofertas</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold mt-6">Mejora del Servicio</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Analizar patrones de uso para mejorar nuestros servicios</li>
+                <li>Personalizar la experiencia de usuario</li>
+                <li>Realizar investigaciones sobre salud animal (datos anonimizados)</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Sección 3 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Users className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">3. Compartir Información</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p><strong>No vendemos tu información personal.</strong> Solo compartimos datos en las siguientes circunstancias:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Proveedores de servicios:</strong> Empresas que nos ayudan a operar (procesamiento de pagos, envíos, hosting)</li>
+                <li><strong>Veterinarios asociados:</strong> Solo información relevante para el cuidado de tu mascota</li>
+                <li><strong>Laboratorios:</strong> Para análisis médicos (solo datos necesarios)</li>
+                <li><strong>Requerimientos legales:</strong> Cuando sea requerido por ley o autoridades competentes</li>
+                <li><strong>Emergencias médicas:</strong> Para garantizar el bienestar de tu mascota</li>
+              </ul>
+            </div>
+          </section>
+
+          {/* Sección 4 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Shield className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">4. Seguridad de Datos</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>Implementamos múltiples medidas de seguridad:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Cifrado SSL para todas las transmisiones de datos</li>
+                <li>Servidores seguros con acceso restringido</li>
+                <li>Auditorías de seguridad regulares</li>
+                <li>Formación del personal en protección de datos</li>
+                <li>Copias de seguridad automáticas y cifradas</li>
+              </ul>
+              <p className="mt-4 p-4 bg-blue-50 rounded-lg">
+                <strong>Nota:</strong> Aunque tomamos todas las precauciones, ningún sistema es 100% seguro. 
+                Te recomendamos usar contraseñas seguras y no compartir tu información de acceso.
+              </p>
+            </div>
+          </section>
+
+          {/* Sección 5 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Eye className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">5. Tus Derechos</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>Tienes derecho a:</p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">Acceso y Rectificación</h4>
+                  <p className="text-sm">Solicitar copia de tus datos y corregir información incorrecta</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">Portabilidad</h4>
+                  <p className="text-sm">Recibir tus datos en formato estructurado y legible</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">Eliminación</h4>
+                  <p className="text-sm">Solicitar eliminación de datos (sujeto a obligaciones legales)</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold mb-2">Oposición</h4>
+                  <p className="text-sm">Oponerte al procesamiento de tus datos para marketing</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Sección 6 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Lock className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">6. Cookies y Tecnologías Similares</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>Utilizamos cookies para:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Esenciales:</strong> Funcionamiento básico del sitio (carrito de compras, sesión)</li>
+                <li><strong>Analíticas:</strong> Google Analytics para entender el uso del sitio</li>
+                <li><strong>Funcionales:</strong> Recordar preferencias y configuraciones</li>
+                <li><strong>Marketing:</strong> Mostrar anuncios relevantes (solo con tu consentimiento)</li>
+              </ul>
+              <p className="mt-4 p-4 bg-yellow-50 rounded-lg">
+                Puedes gestionar las cookies desde la configuración de tu navegador o desde nuestro centro de preferencias.
+              </p>
+            </div>
+          </section>
+
+          {/* Sección 7 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Users className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">7. Menores de Edad</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Nuestros servicios están dirigidos a personas mayores de 18 años. No recopilamos 
+                intencionalmente información de menores de edad. Si identificamos que hemos recopilado 
+                datos de un menor, procederemos a eliminarlos inmediatamente.
+              </p>
+              <p>
+                Los padres o tutores pueden contactarnos si creen que hemos recopilado información 
+                de sus hijos menores de edad.
+              </p>
+            </div>
+          </section>
+
+          {/* Sección 8 */}
+          <section>
+            <div className="flex items-center mb-4">
+              <Shield className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">8. Cambios en esta Política</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos 
+                sobre cambios importantes mediante:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Correo electrónico a tu dirección registrada</li>
+                <li>Notificación prominente en nuestro sitio web</li>
+                <li>Mensaje en tu área de cliente</li>
+              </ul>
+              <p>
+                Te recomendamos revisar esta página periódicamente para estar al tanto de cualquier cambio.
+              </p>
+            </div>
+          </section>
+
+          {/* Sección 9 - Contacto */}
+          <section className="bg-blue-50 p-6 rounded-lg">
+            <div className="flex items-center mb-4">
+              <Mail className="h-6 w-6 text-blue-600 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900">9. Contacto</h2>
+            </div>
+            <div className="text-gray-700 space-y-4">
+              <p>
+                Para cualquier pregunta sobre esta política de privacidad o para ejercer tus derechos, 
+                puedes contactarnos:
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-center">
+                  <Mail className="h-5 w-5 text-blue-600 mr-2" />
+                  <span>privacidad@petvetcare.com</span>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="h-5 w-5 text-blue-600 mr-2" />
+                  <span>+1 (555) 123-4567</span>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 mt-4">
+                <strong>Delegado de Protección de Datos:</strong> Responderemos a tu solicitud dentro de 30 días hábiles.
+              </p>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <div className="text-center pt-8 border-t border-gray-200">
+            <p className="text-sm text-gray-500">
+              © 2025 PetVet Care. Todos los derechos reservados. |
+              <a href="/terms" className="text-blue-600 hover:underline ml-1">Términos de Servicio</a> |
+              <a href="/privacy" className="text-blue-600 hover:underline ml-1">Política de Privacidad</a>
             </p>
           </div>
         </div>
-
-        {/* Políticas desplegables */}
-        {[
-          {
-            id: 'entregas',
-            icon: <Scale className="w-5 h-5" />,
-            color: 'bg-cyan-100 text-cyan-600',
-            title: 'Política de Entregas',
-            content: (
-              <div className="text-gray-700 text-sm space-y-4">
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Entregamos en 24-48 horas en zonas urbanas y hasta 72 horas en áreas rurales.</li>
-                  <li>Envío gratuito en pedidos superiores a $10; de lo contrario, se aplica una tarifa fija visible al finalizar la compra.</li>
-                  <li>Pedidos antes de las 14:00 se procesan el mismo día; posteriores, al siguiente día hábil.</li>
-                </ul>
-                <p className="font-medium">¿Problemas con tu entrega? Contáctanos en <a href="mailto:soporte@vetmascotas.com" className="text-teal-700 hover:underline">soporte@vetmascotas.com</a>.</p>
-              </div>
-            ),
-          },
-          {
-            id: 'devoluciones',
-            icon: <FileText className="w-5 h-5" />,
-            color: 'bg-emerald-100 text-emerald-600',
-            title: 'Cambios y Devoluciones',
-            content: (
-              <div className="text-gray-700 text-sm space-y-4">
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Devoluciones aceptadas dentro de los 7 días posteriores a la recepción, con empaque original y sin uso.</li>
-                  <li>Alimentos húmedos o perecederos no son retornables, salvo defectos verificables.</li>
-                  <li>Requiere comprobante de compra y contacto previo con nuestro equipo.</li>
-                </ul>
-                <p className="font-medium">Inicia tu devolución en <a href="mailto:devoluciones@vetmascotas.com" className="text-teal-700 hover:underline">devoluciones@vetmascotas.com</a>.</p>
-              </div>
-            ),
-          },
-          {
-            id: 'veterinario',
-            icon: <Heart className="w-5 h-5" />,
-            color: 'bg-pink-100 text-pink-600',
-            title: 'Servicios Veterinarios',
-            content: (
-              <div className="text-gray-700 text-sm space-y-4">
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Citas previas requeridas para una atención personalizada y eficiente.</li>
-                  <li>Cancelaciones con menos de 12 horas o retrasos superiores a 15 minutos implican reprogramación.</li>
-                  <li>Nuestros veterinarios certificados registran cada consulta para un seguimiento óptimo.</li>
-                </ul>
-                <p className="font-medium">Agenda tu cita en <a href="tel:+1234567890" className="text-teal-700 hover:underline">+123-456-7890</a>.</p>
-              </div>
-            ),
-          },
-          {
-            id: 'privacidad',
-            icon: <Eye className="w-5 h-5" />,
-            color: 'bg-blue-100 text-blue-600',
-            title: 'Política de Privacidad',
-            content: (
-              <div className="text-gray-700 text-sm space-y-4">
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>Recopilamos solo datos esenciales: nombre, contacto, información de tu mascota y preferencias.</li>
-                  <li>Usamos tu información para gestionar pedidos, mejorar servicios y enviar promociones relevantes.</li>
-                  <li>Garantizamos seguridad con cifrado SSL y no compartimos datos sin tu consentimiento.</li>
-                </ul>
-                <p className="font-medium">Más detalles en <a href="/privacidad" className="text-teal-700 hover:underline">nuestra política completa</a>.</p>
-              </div>
-            ),
-          },
-        ].map(({ id, icon, title, content, color }) => (
-          <div key={id} className="bg-white rounded-xl shadow-lg overflow-hidden mb-6 transition-all duration-300">
-            <button
-              onClick={() => togglePolicy(id)}
-              className="w-full p-6 flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
-            >
-              <div className="flex items-center gap-4">
-                <div className={`p-2.5 rounded-full ${color}`}>{icon}</div>
-                <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-              </div>
-              <div className="text-gray-400">
-                {activePolicy === id ? (
-                  <ChevronUp className="w-5 h-5 transition-transform duration-300" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 transition-transform duration-300" />
-                )}
-              </div>
-            </button>
-            {activePolicy === id && (
-              <div className="px-6 pb-6 border-t border-gray-100 transition-all duration-300 ease-in-out">
-                <div className="pt-4">{content}</div>
-              </div>
-            )}
-          </div>
-        ))}
-
-        {/* Pie de contacto */}
-        <div className="mt-16 text-center text-sm text-gray-600">
-          ¿Dudas sobre nuestras políticas? Escríbenos a{' '}
-          <a href="mailto:contacto@vetmascotas.com" className="font-medium text-teal-700 hover:underline">
-            contacto@vetmascotas.com
-          </a>{' '}
-          o llámanos al{' '}
-          <a href="tel:+1234567890" className="font-medium text-teal-700 hover:underline">
-            +123-456-7890
-          </a>.
-        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default PrivacyPolicy;
