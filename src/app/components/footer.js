@@ -84,7 +84,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>
-                  <a href="/politica-privacidad" className="hover:text-orange-500 transition-colors">
+                  <a href="\pages\privacidad" className="hover:text-orange-500 transition-colors">
                     Políticas de privacidad
                   </a>
                 </div>
