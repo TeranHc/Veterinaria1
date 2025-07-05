@@ -94,7 +94,7 @@ export default function Footer() {
                   </a>
                 </div>
                 <div>
-                  <a href="/metodos-pago" className="hover:text-orange-500 transition-colors">
+                  <a href="\pages\pagos" className="hover:text-orange-500 transition-colors">
                     Métodos de pago
                   </a>
                 </div>
