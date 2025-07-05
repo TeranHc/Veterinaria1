@@ -1,355 +1,263 @@
-import React, { useState } from 'react';
-import { Shield, Eye, Lock, CreditCard, Users, Heart, FileText, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Scale } from 'lucide-react';
 
-const StorePoliciesPage = () => {
-  const [activePolicy, setActivePolicy] = useState(null);
+import React from 'react';
+import { Truck, Package, RefreshCw, Clock, Shield, Phone, Mail, MapPin } from 'lucide-react';
 
-  const togglePolicy = (policyId) => {
-    setActivePolicy(activePolicy === policyId ? null : policyId);
-  };
-
-  const policies = [
-    {
-      id: 'privacy',
-      title: 'Política de Privacidad',
-      icon: <Eye className="w-6 h-6" />,
-      color: 'blue',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Información que Recopilamos</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Datos personales: nombre, dirección, teléfono, email</li>
-              <li>• Información de mascotas: raza, edad, historial médico</li>
-              <li>• Datos de compra y preferencias</li>
-              <li>• Información de navegación y cookies</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Uso de la Información</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Procesamiento de pedidos y servicios</li>
-              <li>• Comunicación sobre productos y servicios</li>
-              <li>• Mejora de la experiencia del usuario</li>
-              <li>• Cumplimiento de obligaciones legales</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Protección de Datos</h4>
-            <p className="text-gray-700">
-              Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales contra acceso no autorizado, alteración, divulgación o destrucción.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'terms',
-      title: 'Términos y Condiciones',
-      icon: <FileText className="w-6 h-6" />,
-      color: 'green',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Uso del Sitio Web</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Debe ser mayor de 18 años o tener autorización parental</li>
-              <li>• Usar el sitio solo para fines legítimos</li>
-              <li>• No reproducir contenido sin autorización</li>
-              <li>• Mantener la confidencialidad de su cuenta</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Responsabilidades del Usuario</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Proporcionar información veraz y actualizada</li>
-              <li>• Usar productos según las instrucciones</li>
-              <li>• Supervisar el uso de productos por parte de mascotas</li>
-              <li>• Notificar cualquier problema o incidencia</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Limitación de Responsabilidad</h4>
-            <p className="text-gray-700">
-              No seremos responsables por daños indirectos, incidentales o consecuentes que resulten del uso de nuestros productos o servicios.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'security',
-      title: 'Política de Seguridad',
-      icon: <Lock className="w-6 h-6" />,
-      color: 'red',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Seguridad de Datos</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Encriptación SSL en todas las transacciones</li>
-              <li>• Servidores seguros con certificaciones actualizadas</li>
-              <li>• Acceso restringido a información personal</li>
-              <li>• Monitoreo constante de actividades sospechosas</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Seguridad de Cuentas</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Contraseñas seguras requeridas</li>
-              <li>• Notificación de accesos inusuales</li>
-              <li>• Opción de autenticación de dos factores</li>
-              <li>• Cierre automático de sesiones inactivas</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Reporte de Vulnerabilidades</h4>
-            <p className="text-gray-700">
-              Si encuentra alguna vulnerabilidad de seguridad, por favor contáctenos inmediatamente a security@petcare.com
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'payment',
-      title: 'Política de Pagos',
-      icon: <CreditCard className="w-6 h-6" />,
-      color: 'purple',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Métodos de Pago Aceptados</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Tarjetas de crédito (Visa, MasterCard, American Express)</li>
-              <li>• Tarjetas de débito</li>
-              <li>• PayPal y carteras digitales</li>
-              <li>• Transferencias bancarias</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Procesamiento de Pagos</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Procesamiento inmediato para productos</li>
-              <li>• Autorización previa para servicios veterinarios</li>
-              <li>• Confirmación automática por email</li>
-              <li>• Facturación detallada disponible</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Política de Reembolsos</h4>
-            <p className="text-gray-700">
-              Los reembolsos se procesan dentro de 3-5 días hábiles al método de pago original. Para servicios cancelados, aplican las políticas de cancelación específicas.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'veterinary',
-      title: 'Política de Servicios Veterinarios',
-      icon: <Heart className="w-6 h-6" />,
-      color: 'pink',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Alcance de Servicios</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Consultas generales y revisiones</li>
-              <li>• Vacunación y desparasitación</li>
-              <li>• Atención de emergencias básicas</li>
-              <li>• Asesoramiento nutricional</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Limitaciones del Servicio</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Cirugías complejas requieren derivación</li>
-              <li>• Emergencias críticas deben dirigirse a clínicas 24/7</li>
-              <li>• Algunos tratamientos requieren instalaciones especializadas</li>
-              <li>• Diagnósticos complejos pueden requerir estudios adicionales</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Responsabilidad Profesional</h4>
-            <p className="text-gray-700">
-              Todos nuestros veterinarios están certificados y mantienen seguros de responsabilidad profesional. Los tratamientos se realizan según las mejores prácticas veterinarias.
-            </p>
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'age',
-      title: 'Política de Edad',
-      icon: <Users className="w-6 h-6" />,
-      color: 'orange',
-      content: (
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Edad Mínima para Usar el Servicio</h4>
-            <p className="text-gray-700 mb-4">
-              Nuestros servicios están dirigidos a personas mayores de 18 años. Los menores de edad pueden usar nuestros servicios bajo supervisión parental.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Menores de Edad</h4>
-            <ul className="space-y-1 text-gray-700 ml-4">
-              <li>• Requieren autorización parental para crear cuentas</li>
-              <li>• Los padres son responsables de todas las transacciones</li>
-              <li>• Supervisión requerida durante servicios veterinarios</li>
-              <li>• Políticas especiales de privacidad aplicables</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Verificación de Edad</h4>
-            <p className="text-gray-700">
-              Podemos solicitar verificación de edad para ciertos productos o servicios. La información falsa sobre la edad puede resultar en suspensión de la cuenta.
-            </p>
-          </div>
-        </div>
-      )
-    }
-  ];
-
-  const getColorClasses = (color) => {
-    const colorMap = {
-      blue: 'bg-blue-100 text-blue-600 border-blue-500',
-      green: 'bg-green-100 text-green-600 border-green-500',
-      red: 'bg-red-100 text-red-600 border-red-500',
-      purple: 'bg-purple-100 text-purple-600 border-purple-500',
-      pink: 'bg-pink-100 text-pink-600 border-pink-500',
-      orange: 'bg-orange-100 text-orange-600 border-orange-500'
-    };
-    return colorMap[color] || 'bg-gray-100 text-gray-600 border-gray-500';
-  };
-
+const ShippingReturnsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
+      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-4">Políticas de la Tienda</h1>
+          <h1 className="text-4xl font-bold text-center mb-4">Envío y Devoluciones</h1>
           <p className="text-xl text-center opacity-90">
-            Conoce nuestras políticas y términos de servicio
+            Información sobre nuestras políticas de envío y devoluciones
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        {/* Resumen ejecutivo */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-full">
-              <Scale className="w-6 h-6 text-blue-600" />
+        {/* Navegación interna */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <a href="#shipping" className="bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-blue-500">
+            <div className="flex items-center gap-2">
+              <Truck className="w-5 h-5 text-blue-600" />
+              <span className="font-medium">Política de Envío</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">Resumen de Políticas</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-green-50 p-6 rounded-lg">
-              <CheckCircle className="w-8 h-8 text-green-600 mb-3" />
-              <h3 className="font-semibold text-green-800 mb-2">Compromiso con la Calidad</h3>
-              <p className="text-gray-700 text-sm">
-                Garantizamos productos de alta calidad y servicios veterinarios profesionales para el bienestar de tu mascota.
-              </p>
+          </a>
+          <a href="#returns" className="bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-green-500">
+            <div className="flex items-center gap-2">
+              <RefreshCw className="w-5 h-5 text-green-600" />
+              <span className="font-medium">Cambios y Devoluciones</span>
             </div>
-            
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <Shield className="w-8 h-8 text-blue-600 mb-3" />
-              <h3 className="font-semibold text-blue-800 mb-2">Seguridad y Privacidad</h3>
-              <p className="text-gray-700 text-sm">
-                Protegemos tus datos personales con los más altos estándares de seguridad y cumplimos con todas las regulaciones.
-              </p>
-            </div>
-            
-            <div className="bg-purple-50 p-6 rounded-lg">
-              <Heart className="w-8 h-8 text-purple-600 mb-3" />
-              <h3 className="font-semibold text-purple-800 mb-2">Atención al Cliente</h3>
-              <p className="text-gray-700 text-sm">
-                Nuestro equipo está disponible para ayudarte con cualquier consulta o problema que puedas tener.
-              </p>
-            </div>
-          </div>
+          </a>
         </div>
 
-        {/* Políticas expandibles */}
-        <div className="space-y-6">
-          {policies.map((policy) => (
-            <div key={policy.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <button
-                onClick={() => togglePolicy(policy.id)}
-                className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-full ${getColorClasses(policy.color)}`}>
-                    {policy.icon}
+        {/* Política de Envío */}
+        <section id="shipping" className="mb-16">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-blue-100 p-3 rounded-full">
+                <Truck className="w-6 h-6 text-blue-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800">Política de Envío</h2>
+            </div>
+
+            <div className="space-y-8">
+              {/* Productos */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <Package className="w-5 h-5 text-blue-600" />
+                  Productos para Mascotas
+                </h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-3">Envío Estándar</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <Clock className="w-4 h-4 mt-1 text-blue-600 flex-shrink-0" />
+                        <span>3-5 días hábiles</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-4 h-4 mt-1 text-blue-600 flex-shrink-0">$</span>
+                        <span>Envío gratuito en compras mayores a $50</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-4 h-4 mt-1 text-blue-600 flex-shrink-0">$</span>
+                        <span>$5.99 para pedidos menores</span>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">{policy.title}</h3>
-                </div>
-                <div className="text-gray-400">
-                  {activePolicy === policy.id ? (
-                    <ChevronUp className="w-6 h-6" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6" />
-                  )}
-                </div>
-              </button>
-              
-              {activePolicy === policy.id && (
-                <div className="px-6 pb-6 border-t border-gray-100">
-                  <div className="pt-6">
-                    {policy.content}
+                  
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-3">Envío Express</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li className="flex items-start gap-2">
+                        <Clock className="w-4 h-4 mt-1 text-green-600 flex-shrink-0" />
+                        <span>1-2 días hábiles</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-4 h-4 mt-1 text-green-600 flex-shrink-0">$</span>
+                        <span>$12.99 costo adicional</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Shield className="w-4 h-4 mt-1 text-green-600 flex-shrink-0" />
+                        <span>Seguro incluido</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-              )}
-            </div>
-          ))}
-        </div>
+              </div>
 
-        {/* Aviso legal */}
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mt-12">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="font-semibold text-yellow-800 mb-2">Aviso Legal Importante</h3>
-              <p className="text-gray-700 text-sm">
-                Estas políticas pueden actualizarse periódicamente. Las modificaciones entrarán en vigor inmediatamente después de su publicación en nuestro sitio web. Es responsabilidad del usuario revisar regularmente estas políticas. El uso continuado de nuestros servicios constituye la aceptación de cualquier modificación.
-              </p>
+              {/* Servicios Veterinarios */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-green-600" />
+                  Servicios Veterinarios
+                </h3>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-3">Consultas a Domicilio</h4>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Programación con 24-48 horas de anticipación</li>
+                        <li>• Área de cobertura: 15 km del centro de la ciudad</li>
+                        <li>• Costo adicional de $20 por traslado</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-3">Medicamentos</h4>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Entrega en 2-4 horas (medicamentos urgentes)</li>
+                        <li>• Entrega estándar: mismo día</li>
+                        <li>• Refrigerados: entrega inmediata</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Condiciones generales */}
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-3">Condiciones Generales de Envío</h4>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Los tiempos de entrega se calculan en días hábiles (lunes a viernes)</li>
+                  <li>• Productos perecederos requieren confirmación de recepción</li>
+                  <li>• Alimentos refrigerados solo se entregan en horarios específicos</li>
+                  <li>• Es necesario que alguien esté presente para recibir productos veterinarios</li>
+                  <li>• Los envíos se realizan de 8:00 AM a 6:00 PM</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Fecha de actualización */}
-        <div className="text-center mt-8 text-gray-500">
-          <p>Última actualización: {new Date().toLocaleDateString('es-ES', { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          })}</p>
-        </div>
-
-        {/* Contacto para políticas */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-8 mt-12">
-          <h2 className="text-2xl font-bold mb-4 text-center">¿Preguntas sobre nuestras políticas?</h2>
-          <p className="text-center mb-6 opacity-90">
-            Si tienes alguna duda sobre nuestras políticas o términos de servicio, no dudes en contactarnos.
-          </p>
-          <div className="flex justify-center gap-6">
-            <div className="text-center">
-              <p className="font-semibold">Email Legal</p>
-              <p>legal@petcare.com</p>
+        {/* Política de Cambios y Devoluciones */}
+        <section id="returns" className="mb-16">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-green-100 p-3 rounded-full">
+                <RefreshCw className="w-6 h-6 text-green-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800">Política de Cambios y Devoluciones</h2>
             </div>
-            <div className="text-center">
-              <p className="font-semibold">Teléfono</p>
+
+            <div className="space-y-8">
+              {/* Productos */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Productos para Mascotas</h3>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="bg-green-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-green-800 mb-3">Productos Elegibles</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>• Alimentos secos sin abrir (30 días)</li>
+                      <li>• Juguetes y accesorios (15 días)</li>
+                      <li>• Productos de higiene sin usar (30 días)</li>
+                      <li>• Correas, collares y arneses (15 días)</li>
+                      <li>• Camas y mantas (7 días, sin usar)</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-red-50 p-6 rounded-lg">
+                    <h4 className="font-semibold text-red-800 mb-3">Productos NO Elegibles</h4>
+                    <ul className="space-y-2 text-gray-700">
+                      <li>• Alimentos perecederos o refrigerados</li>
+                      <li>• Medicamentos y suplementos</li>
+                      <li>• Productos de higiene abiertos</li>
+                      <li>• Productos personalizados</li>
+                      <li>• Alimentos húmedos abiertos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-blue-800 mb-3">Condiciones para Devoluciones</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Productos en su empaque original</li>
+                    <li>• Incluir recibo o comprobante de compra</li>
+                    <li>• Productos sin daños causados por uso</li>
+                    <li>• Etiquetas y sellos intactos</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Servicios Veterinarios */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Servicios Veterinarios</h3>
+                <div className="bg-yellow-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-yellow-800 mb-3">Política de Cancelación</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Cancelación gratuita hasta 24 horas antes de la cita</li>
+                    <li>• Cancelación con 12-24 horas: 50% del costo</li>
+                    <li>• Cancelación con menos de 12 horas: costo completo</li>
+                    <li>• Emergencias médicas: política flexible</li>
+                    <li>• Reprogramación gratuita una vez por cita</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Proceso de devolución */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Proceso de Devolución</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-gray-50 p-6 rounded-lg text-center">
+                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-blue-600 font-bold">1</span>
+                    </div>
+                    <h4 className="font-semibold mb-2">Contacta con nosotros</h4>
+                    <p className="text-gray-600 text-sm">Envía un email o llama para iniciar el proceso</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg text-center">
+                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-blue-600 font-bold">2</span>
+                    </div>
+                    <h4 className="font-semibold mb-2">Envía el producto</h4>
+                    <p className="text-gray-600 text-sm">Empaca el producto y envíalo a nuestra dirección</p>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg text-center">
+                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-blue-600 font-bold">3</span>
+                    </div>
+                    <h4 className="font-semibold mb-2">Recibe tu reembolso</h4>
+                    <p className="text-gray-600 text-sm">Procesamos el reembolso en 3-5 días hábiles</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contacto */}
+        <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-8">
+          <h2 className="text-2xl font-bold mb-6 text-center">¿Necesitas ayuda?</h2>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="flex flex-col items-center">
+              <Phone className="w-8 h-8 mb-3" />
+              <h3 className="font-semibold mb-2">Teléfono</h3>
               <p>(555) 123-4567</p>
+              <p className="text-sm opacity-90">Lun-Vie: 8:00 AM - 6:00 PM</p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <Mail className="w-8 h-8 mb-3" />
+              <h3 className="font-semibold mb-2">Email</h3>
+              <p>ayuda@petcare.com</p>
+              <p className="text-sm opacity-90">Respuesta en 24 horas</p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <MapPin className="w-8 h-8 mb-3" />
+              <h3 className="font-semibold mb-2">Dirección</h3>
+              <p>Calle Principal 123</p>
+              <p className="text-sm opacity-90">Ciudad, Estado 12345</p>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
 };
 
-
-export default StorePoliciesPage;
+export default ShippingReturnsPage;
