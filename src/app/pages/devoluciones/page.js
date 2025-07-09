@@ -6,7 +6,7 @@ const ShippingReturnsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-16">
+      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold text-center mb-4">Envío y Devoluciones</h1>
           <p className="text-xl text-center opacity-90">
@@ -230,7 +230,7 @@ const ShippingReturnsPage = () => {
         </section>
 
         {/* Contacto */}
-        <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-xl p-8">
+        <section className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-xl p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">¿Necesitas ayuda?</h2>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="flex flex-col items-center">
