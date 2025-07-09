@@ -130,7 +130,7 @@ export default function FAQPage() {
             <div key={section.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div 
                 onClick={() => toggleSection(section.id)}
-                className="bg-gradient-to-r from-blue-600 to-green-600 text-white p-6 cursor-pointer hover:from-blue-700 hover:to-green-700 transition-all duration-300"
+                className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white p-6 cursor-pointer hover:from-teal-600 hover:to-cyan-700 transition-all duration-300"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -151,7 +151,7 @@ export default function FAQPage() {
               {openSections[section.id] && (
                 <div className="p-6 space-y-6 animate-in slide-in-from-top-2 duration-300">
                   {section.questions.map((item, index) => (
-                    <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
+                    <div key={index} className="border-l-4 border-teal-500 pl-4 py-2">
                       <h3 className="font-semibold text-gray-800 mb-2 text-lg">
                         {item.question}
                       </h3>
