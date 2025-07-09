@@ -21,7 +21,7 @@ export default function FAQPage() {
       questions: [
         {
           question: '¿Qué tipos de productos para mascotas ofrecen?',
-          answer: 'Ofrecemos una amplia gama de productos incluyendo alimentos premium, juguetes, accesorios, productos de higiene, medicamentos, suplementos nutricionales y artículos de cuidado para perros, gatos, aves, peces y mascotas exóticas.'
+          answer: 'Ofrecemos una amplia gama de productos incluyendo alimentos, juguetes, accesorios, productos de higiene, medicamentos, suplementos nutricionales y artículos de cuidado para todas las mascotas.'
         },
         {
           question: '¿Los productos tienen garantía?',
@@ -172,13 +172,13 @@ export default function FAQPage() {
             ¿No encontraste lo que buscabas?
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-6 text-center">
+            <div className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-lg p-6 text-center">
               <Phone className="w-8 h-8 mx-auto mb-3" />
               <h3 className="font-semibold mb-2">Llámanos</h3>
               <p className="text-blue-100">+1 (555) 123-4567</p>
               <p className="text-sm text-blue-100 mt-1">Lun-Vie: 8AM-8PM</p>
             </div>
-            <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg p-6 text-center">
+            <div className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-lg p-6 text-center">
               <Mail className="w-8 h-8 mx-auto mb-3" />
               <h3 className="font-semibold mb-2">Escríbenos</h3>
               <p className="text-green-100">info@veterinariapet.com</p>
