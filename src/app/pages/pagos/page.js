@@ -7,7 +7,7 @@ const PaymentMethods = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       {/* Encabezado decorativo */}
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 py-16 text-white text-center">
+      <div className="bg-gradient-to-r from-blue-600 to-green-600 py-16 text-white text-center">
         <div className="flex justify-center mb-4">
           <CreditCard className="h-14 w-14 text-white" />
         </div>
