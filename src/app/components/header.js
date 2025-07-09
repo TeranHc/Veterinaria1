@@ -86,10 +86,16 @@ export default function Header() {
               </div>
               
               <div className="ml-2 sm:ml-3">
+                <a 
+                  href="/" 
+                  className="text-teal-600 hover:text-orange-500 transition-colors underline font-medium"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                 <h1 className="text-white font-bold text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl tracking-wide drop-shadow-lg">
                   Salud<span className="text-yellow-300">Pet</span>
                 </h1>
-
+                </a>
               </div>
             </div>
 

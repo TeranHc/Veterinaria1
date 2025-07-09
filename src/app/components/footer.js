@@ -88,6 +88,11 @@ export default function Footer() {
                     Políticas de privacidad
                   </a>
                 </div>
+                  <div>
+                  <a href="\pages\cookies" className="hover:text-orange-500 transition-colors">
+                    Políticas de cookies
+                  </a>
+                </div>
                 <div>
                   <a href="\pages\condiciones" className="hover:text-orange-500 transition-colors">
                     Términos y condiciones
@@ -121,7 +126,7 @@ export default function Footer() {
               
               {/* Redes sociales */}
               <div className="flex justify-center md:justify-start gap-4 mt-6">
-                <a href="/pages/devoluciones" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <a href="#" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
                   <i className="fab fa-facebook-f text-white"></i>
                 </a>
                 <a href="#" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
