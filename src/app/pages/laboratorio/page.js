@@ -179,10 +179,10 @@ export default function ServiciosLaboratorio() {
 
         {/* Progress Bar */}
         <div className="mb-12">
-          <div className="flex items-center justify-center space-x-8">
+          <div className="flex items-center justify-center space-x-2 sm:space-x-8">
             {[1, 2, 3].map((step) => (
               <div key={step} className="flex items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-semibold transition-all duration-300 ${
+                <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-semibold transition-all duration-300 text-xs sm:text-base ${
                   currentStep >= step 
                     ? 'bg-blue-500 text-white shadow-lg' 
                     : 'bg-gray-200 text-gray-500'
@@ -190,21 +190,21 @@ export default function ServiciosLaboratorio() {
                   {step}
                 </div>
                 {step < 3 && (
-                  <div className={`w-24 h-1 mx-4 transition-all duration-300 ${
+                  <div className={`w-8 sm:w-24 h-1 mx-1 sm:mx-4 transition-all duration-300 ${
                     currentStep > step ? 'bg-blue-500' : 'bg-gray-200'
                   }`}></div>
                 )}
               </div>
             ))}
           </div>
-          <div className="flex justify-center space-x-24 mt-4">
-            <span className={`text-sm font-medium ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'}`}>
+          <div className="flex justify-center space-x-4 sm:space-x-24 mt-4 px-4">
+            <span className={`text-xs sm:text-sm font-medium text-center ${currentStep >= 1 ? 'text-blue-600' : 'text-gray-500'}`}>
               Información Básica
             </span>
-            <span className={`text-sm font-medium ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span className={`text-xs sm:text-sm font-medium text-center ${currentStep >= 2 ? 'text-blue-600' : 'text-gray-500'}`}>
               Tipos de Análisis
             </span>
-            <span className={`text-sm font-medium ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-500'}`}>
+            <span className={`text-xs sm:text-sm font-medium text-center ${currentStep >= 3 ? 'text-blue-600' : 'text-gray-500'}`}>
               Fecha y Preparación
             </span>
           </div>
