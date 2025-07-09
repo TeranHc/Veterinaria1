@@ -236,14 +236,14 @@ const ShippingReturnsPage = () => {
             <div className="flex flex-col items-center">
               <Phone className="w-8 h-8 mb-3" />
               <h3 className="font-semibold mb-2">Teléfono</h3>
-              <p>(555) 123-4567</p>
+              <p>+593 4 123-4567</p>
               <p className="text-sm opacity-90">Lun-Vie: 8:00 AM - 6:00 PM</p>
             </div>
             
             <div className="flex flex-col items-center">
               <Mail className="w-8 h-8 mb-3" />
               <h3 className="font-semibold mb-2">Email</h3>
-              <p>ayuda@petcare.com</p>
+              <p>info@saludpet.com</p>
               <p className="text-sm opacity-90">Respuesta en 24 horas</p>
             </div>
             
@@ -251,7 +251,7 @@ const ShippingReturnsPage = () => {
               <MapPin className="w-8 h-8 mb-3" />
               <h3 className="font-semibold mb-2">Dirección</h3>
               <p>Calle Principal 123</p>
-              <p className="text-sm opacity-90">Ciudad, Estado 12345</p>
+              <p className="text-sm opacity-90">Guayaquil, Ecuador</p>
             </div>
           </div>
         </section>

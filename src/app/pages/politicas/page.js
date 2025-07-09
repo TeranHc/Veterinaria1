@@ -71,7 +71,7 @@ export default function PoliticasTienda() {
                   <li>Envío gratuito en pedidos superiores a $10; de lo contrario, se aplica una tarifa fija visible al finalizar la compra.</li>
                   <li>Pedidos antes de las 14:00 se procesan el mismo día; posteriores, al siguiente día hábil.</li>
                 </ul>
-                <p className="font-medium">¿Problemas con tu entrega? Contáctanos en <a href="mailto:soporte@vetmascotas.com" className="text-teal-700 hover:underline">soporte@vetmascotas.com</a>.</p>
+                <p className="font-medium">¿Problemas con tu entrega? Contáctanos en <a href="info@saludpet.com" className="text-teal-700 hover:underline">info@saludpet.com</a>.</p>
               </div>
             ),
           },
@@ -87,7 +87,7 @@ export default function PoliticasTienda() {
                   <li>Alimentos húmedos o perecederos no son retornables, salvo defectos verificables.</li>
                   <li>Requiere comprobante de compra y contacto previo con nuestro equipo.</li>
                 </ul>
-                <p className="font-medium">Inicia tu devolución en <a href="mailto:devoluciones@vetmascotas.com" className="text-teal-700 hover:underline">devoluciones@vetmascotas.com</a>.</p>
+                <p className="font-medium">Inicia tu devolución en <a href="mailto:devoluciones@vetmascotas.com" className="text-teal-700 hover:underline">Devoluciones@saludpet.com</a>.</p>
               </div>
             ),
           },
@@ -103,7 +103,7 @@ export default function PoliticasTienda() {
                   <li>Cancelaciones con menos de 12 horas o retrasos superiores a 15 minutos implican reprogramación.</li>
                   <li>Nuestros veterinarios certificados registran cada consulta para un seguimiento óptimo.</li>
                 </ul>
-                <p className="font-medium">Agenda tu cita en <a href="tel:+1234567890" className="text-teal-700 hover:underline">+123-456-7890</a>.</p>
+                <p className="font-medium">Comienza a agendar tu cita aqui: <a href="/pages/servicio" className="text-teal-700 hover:underline">Agendar citas médicas</a>.</p>
               </div>
             ),
           },
@@ -119,7 +119,7 @@ export default function PoliticasTienda() {
                   <li>Usamos tu información para gestionar pedidos, mejorar servicios y enviar promociones relevantes.</li>
                   <li>Garantizamos seguridad con cifrado SSL y no compartimos datos sin tu consentimiento.</li>
                 </ul>
-                <p className="font-medium">Más detalles en <a href="/privacidad" className="text-teal-700 hover:underline">nuestra política completa</a>.</p>
+                <p className="font-medium">Más detalles en <a href="\pages\privacidad" className="text-teal-700 hover:underline">nuestra política completa</a>.</p>
               </div>
             ),
           },
@@ -153,11 +153,11 @@ export default function PoliticasTienda() {
         <div className="mt-16 text-center text-sm text-gray-600">
           ¿Dudas sobre nuestras políticas? Escríbenos a{' '}
           <a href="mailto:contacto@vetmascotas.com" className="font-medium text-teal-700 hover:underline">
-            contacto@vetmascotas.com
+            info@saludpet.com
           </a>{' '}
           o llámanos al{' '}
           <a href="tel:+1234567890" className="font-medium text-teal-700 hover:underline">
-            +123-456-7890
+            +593 4 123-4567
           </a>.
         </div>
       </div>

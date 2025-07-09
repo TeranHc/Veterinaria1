@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
             </div>
             <div className="text-gray-700 space-y-4">
               <p>
-                Al acceder y utilizar los servicios de PetVet Care, incluyendo nuestro sitio web, 
+                Al acceder y utilizar los servicios de SaludPet, incluyendo nuestro sitio web, 
                 servicios veterinarios y tienda de productos para mascotas, aceptas estar sujeto a 
                 estos términos y condiciones.
               </p>
@@ -130,7 +130,7 @@ const TermsAndConditions = () => {
                 <li>Tarjetas de crédito y débito (Visa, Mastercard, American Express)</li>
                 <li>Transferencias bancarias</li>
                 <li>Pagos en efectivo (solo servicios presenciales)</li>
-                <li>Planes de pago para tratamientos costosos (sujeto a aprobación)</li>
+                <li>Pagos de forma segura con tu cuenta Club Pycca</li>
               </ul>
 
               <h3 className="text-lg font-semibold mt-6">Política de Facturación</h3>
@@ -340,19 +340,19 @@ const TermsAndConditions = () => {
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <p><strong>Email:</strong> legal@petvetcare.com</p>
-                  <p><strong>Teléfono:</strong> +1 (555) 123-4567 ext. 201</p>
+                  <p><strong>Email:</strong> legal@saludpet.com</p>
+                  <p><strong>Teléfono:</strong> +593 4 123-4567</p>
                 </div>
                 <div>
-                  <p><strong>Dirección:</strong> 123 Pet Care Ave, Ciudad, Estado 12345</p>
-                  <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 5:00 PM</p>
+                  <p><strong>Dirección:</strong> Ciudad, Guayaquil</p>
+                  <p><strong>Horario:</strong> Lunes a Viernes, 9:00 AM - 6:00 PM</p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Footer */}
-          <div className="text-center pt-8 border-t border-gray-200">
+          {/* <div className="text-center pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-500">
               © 2025 PetVet Care. Todos los derechos reservados. | 
               <a href="/privacy" className="text-green-600 hover:underline ml-1">Política de Privacidad</a> | 
@@ -361,7 +361,7 @@ const TermsAndConditions = () => {
             <p className="text-xs text-gray-400 mt-2">
               Versión 2.1 - Actualizada el {new Date().toLocaleDateString('es-ES')}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

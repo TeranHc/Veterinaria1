@@ -53,11 +53,11 @@ export default function FAQPage() {
         {
           question: '¿Cómo puedo agendar una cita?',
           answer: 'Puedes agendar citas a través de nuestra página web, llamando al teléfono de contacto, o visitando directamente nuestra clínica. Ofrecemos citas regulares y de emergencia.'
-        },
-        {
-          question: '¿Ofrecen planes de salud para mascotas?',
-          answer: 'Sí, tenemos diferentes planes de salud que incluyen consultas regulares, vacunación, desparasitación y descuentos en otros servicios. Consulta nuestros paquetes anuales.'
         }
+        // {
+        //   question: '¿Ofrecen planes de salud para mascotas?',
+        //   answer: 'Sí, tenemos diferentes planes de salud que incluyen consultas regulares, vacunación, desparasitación y descuentos en otros servicios. Consulta nuestros paquetes anuales.'
+        // }
       ]
     },
     {
@@ -73,10 +73,10 @@ export default function FAQPage() {
           question: '¿Cuánto cuesta el envío?',
           answer: 'El costo de envío varía según el destino y peso del pedido. Ofrecemos envío gratis en compras superiores a $50. Los medicamentos y productos refrigerados tienen tarifas especiales.'
         },
-        {
-          question: '¿Puedo hacer seguimiento de mi pedido?',
-          answer: 'Sí, recibirás un número de seguimiento por email una vez que tu pedido sea enviado. Puedes rastrear tu paquete en tiempo real a través de nuestro sitio web.'
-        },
+        // {
+        //   question: '¿Puedo hacer seguimiento de mi pedido?',
+        //   answer: 'Sí, recibirás un número de seguimiento por email una vez que tu pedido sea enviado. Puedes rastrear tu paquete en tiempo real a través de nuestro sitio web.'
+        // },
         {
           question: '¿Qué pasa si no estoy en casa durante la entrega?',
           answer: 'Nuestros mensajeros intentarán la entrega hasta 3 veces. Si no te encuentran, puedes reprogramar la entrega o recoger el paquete en nuestro punto de distribución más cercano.'
@@ -90,7 +90,7 @@ export default function FAQPage() {
       questions: [
         {
           question: '¿Qué métodos de pago aceptan?',
-          answer: 'Aceptamos tarjetas de crédito, débito, PayPal, transferencias bancarias y pagos en efectivo contra entrega. Todos los pagos online están protegidos con encriptación SSL.'
+          answer: 'Aceptamos tarjetas de crédito, débito, cuenta Club Pycca., transferencias bancarias y pagos en efectivo contra entrega. Todos los pagos online están protegidos con encriptación SSL.'
         },
         {
           question: '¿Puedo devolver un producto?',
@@ -175,14 +175,14 @@ export default function FAQPage() {
             <div className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-lg p-6 text-center">
               <Phone className="w-8 h-8 mx-auto mb-3" />
               <h3 className="font-semibold mb-2">Llámanos</h3>
-              <p className="text-blue-100">+1 (555) 123-4567</p>
+              <p className="text-blue-100">+593 4 123-4567</p>
               <p className="text-sm text-blue-100 mt-1">Lun-Vie: 8AM-8PM</p>
             </div>
             <div className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white rounded-lg p-6 text-center">
               <Mail className="w-8 h-8 mx-auto mb-3" />
               <h3 className="font-semibold mb-2">Escríbenos</h3>
-              <p className="text-green-100">info@veterinariapet.com</p>
-              <p className="text-sm text-green-100 mt-1">Respuesta en 24h</p>
+              <p className="text-green-100">info@saludpet.com</p>
+              <p className="text-sm text-green-100 mt-1">Respuestas inmediatas</p>
             </div>
           </div>
         </div>
@@ -199,7 +199,7 @@ export default function FAQPage() {
           </div>
           <p className="text-red-700">
             Para emergencias veterinarias fuera del horario normal, llama a nuestro número de emergencias: 
-            <span className="font-bold"> +1 (555) 911-PETS</span>. 
+            <span className="font-bold"> +593 90 585-1256</span>. 
             Nuestro equipo veterinario está disponible 24/7 para situaciones críticas.
           </p>
         </div>
