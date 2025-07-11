@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
             Políticas de Privacidad
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            En PetVet Care nos comprometemos a proteger tu privacidad y la de tus mascotas. 
+            En SaludPet nos comprometemos a proteger tu privacidad y la de tus mascotas. 
             Conoce cómo recopilamos, utilizamos y protegemos tu información personal.
           </p>
           <p className="text-sm text-gray-500 mt-4">
@@ -50,12 +50,12 @@ const PrivacyPolicy = () => {
                 <li>Fotografías (solo si las proporcionas voluntariamente)</li>
               </ul>
 
-              <h3 className="text-lg font-semibold mt-6">Información Técnica</h3>
+              {/* <h3 className="text-lg font-semibold mt-6">Información Técnica</h3>
               <ul className="list-disc pl-6 space-y-2">
                 <li>Dirección IP y datos de navegación</li>
                 <li>Tipo de dispositivo y navegador utilizado</li>
                 <li>Cookies y tecnologías similares</li>
-              </ul>
+              </ul> */}
             </div>
           </section>
 
@@ -235,11 +235,11 @@ const PrivacyPolicy = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-blue-600 mr-2" />
-                  <span>privacidad@petvetcare.com</span>
+                  <span>privacidad@saludpet.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-blue-600 mr-2" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+593 4 123-4567</span>
                 </div>
               </div>
               <p className="text-sm text-gray-600 mt-4">
@@ -247,15 +247,6 @@ const PrivacyPolicy = () => {
               </p>
             </div>
           </section>
-
-          {/* Footer */}
-          <div className="text-center pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-500">
-              © 2025 PetVet Care. Todos los derechos reservados. |
-              <a href="/terms" className="text-blue-600 hover:underline ml-1">Términos de Servicio</a> |
-              <a href="/privacy" className="text-blue-600 hover:underline ml-1">Política de Privacidad</a>
-            </p>
-          </div>
         </div>
       </div>
     </div>

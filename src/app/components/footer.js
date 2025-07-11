@@ -42,7 +42,7 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 text-black-500">INDEX</h3>
               <div className="space-y-2 text-sm">
                 <div>
-                  <a href="/" className="hover:text-orange-500 transition-colors">
+                  <a href="\" className="hover:text-orange-500 transition-colors">
                     Inicio
                   </a>
                 </div>
@@ -56,11 +56,11 @@ export default function Footer() {
                     Nosotros
                   </a>
                 </div>
-                <div>
+                {/* <div>
                   <a href="/contacto" className="hover:text-orange-500 transition-colors">
                     Contacto
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -112,15 +112,15 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-phone"></i>
-                  <span>xxx-xxx-xxx</span>
+                  <span>+593 4 123-4567</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-envelope"></i>
-                  <span>xxxx@hotmail.com</span>
+                  <span>info@saludpet.com</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <i className="fas fa-map-marker-alt"></i>
-                  <span>xxxxx #xx</span>
+                  <span>Guayaquil, Ecuador</span>
                 </div>
               </div>
               

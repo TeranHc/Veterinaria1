@@ -77,11 +77,11 @@ const PaymentMethods = () => {
         <div className="text-center text-sm text-gray-600 mt-12">
           ¿Dudas sobre los pagos? Escríbenos a{' '}
           <a href="mailto:pagos@petvetcare.com" className="font-medium text-teal-700 hover:underline">
-            pagos@petvetcare.com
+            pagos@saludpet.com
           </a>{' '}
           o llámanos al{' '}
           <a href="tel:+1234567890" className="font-medium text-teal-700 hover:underline">
-            +123-456-7890
+            +593 4 123-4567
           </a>.
         </div>
       </div>

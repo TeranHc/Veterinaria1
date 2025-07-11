@@ -213,7 +213,7 @@ export default function Servicios() {
                   <span key={idx} className="text-yellow-400 text-lg">⭐</span>
                 ))}
               </div>
-              <p className="text-gray-700 italic mb-4 leading-relaxed">"{testimonio.testimonio}"</p>
+              <p className="text-gray-700 italic mb-4 leading-relaxed">{testimonio.testimonio}</p>
               <div className="border-t pt-4">
                 <p className="font-semibold text-teal-700">{testimonio.nombre}</p>
                 <p className="text-sm text-gray-500">Dueño de {testimonio.mascota}</p>

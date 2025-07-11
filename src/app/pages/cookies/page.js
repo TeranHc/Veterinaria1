@@ -256,7 +256,7 @@ const CookiePolicy = () => {
             </div>
           </section>
 
-          {/* Footer */}
+          {/* Footer
           <div className="text-center pt-8 border-t border-gray-200">
             <p className="text-sm text-gray-500">
               © 2025 SaludPet. Todos los derechos reservados. | 
@@ -264,7 +264,7 @@ const CookiePolicy = () => {
               <a href="/terms" className="text-teal-600 hover:underline ml-1">Términos de Servicio</a>
             </p>
 
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
