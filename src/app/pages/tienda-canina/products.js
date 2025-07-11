@@ -7,7 +7,21 @@ export const allProducts = [
     price: 2650.00,
     category: "Comida",
     image: "/images/Cat-pescado.jpg",
-    alt: "Cat chow adulto pescado 15 KG"
+    alt: "Cat chow adulto pescado 15 KG",
+    description: "Alimento completo y balanceado para gatos adultos con delicioso sabor a pescado. Formulado con ingredientes de alta calidad que proporcionan una nutrición completa para mantener a tu gato sano y activo.",
+    features: [
+      "Rico en proteínas de alta calidad",
+      "Fortalece el sistema inmunológico",
+      "Mantiene el pelaje brillante y saludable",
+      "Fácil digestión",
+      "Sabor irresistible a pescado"
+    ],
+    specifications: {
+      peso: "15 KG",
+      edad: "Gatos adultos (1-7 años)",
+      sabor: "Pescado",
+      marca: "Cat Chow"
+    }
   },
   {
     id: 2,

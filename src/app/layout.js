@@ -1,8 +1,8 @@
-import { CartProvider } from './components/CartContext';
+import { CartProvider } from './pages/carrito/CartContext';
 import './globals.css';
 import Header from './components/header';
 import Footer from './components/footer';
-import CookieBanner from './components/CookieBanner';
+import CookieBanner from './pages/cookies/CookieBanner';
 import Script from 'next/script';
 
 export const metadata = {
