@@ -152,12 +152,7 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Ondas decorativas en la parte inferior */}
-        <div className="absolute bottom-0 left-0 right-0 h-0">
-          <svg className="w-full h-4 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="currentColor" fillOpacity="0.1"></path>
-          </svg>
-        </div>
+
       </header>
 
       {/* Componente del carrito separado */}
