@@ -248,88 +248,90 @@ export default function ProductDetailPage({ params }) {
 
         {/* Tabs de información detallada */}
         <div className="bg-white rounded-lg shadow-lg mb-8">
-          <div className="border-b">
-            <nav className="flex space-x-8 px-6">
-              <button
+        <div className="border-b">
+            <nav className="flex px-4 sm:px-6 overflow-x-auto">
+            <button
                 onClick={() => setActiveTab('descripcion')}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'descripcion'
+                className={`py-4 px-2 sm:px-4 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap flex-shrink-0 ${
+                activeTab === 'descripcion'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-              >
+            >
                 Descripción
-              </button>
-              <button
+            </button>
+            <button
                 onClick={() => setActiveTab('especificaciones')}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'especificaciones'
+                className={`py-4 px-2 sm:px-4 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap flex-shrink-0 ml-4 sm:ml-8 ${
+                activeTab === 'especificaciones'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-              >
-                Especificaciones
-              </button>
-              <button
+            >
+                <span className="hidden sm:inline">Especificaciones</span>
+                <span className="sm:hidden">Specs</span>
+            </button>
+            <button
                 onClick={() => setActiveTab('caracteristicas')}
-                className={`py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === 'caracteristicas'
+                className={`py-4 px-2 sm:px-4 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap flex-shrink-0 ml-4 sm:ml-8 ${
+                activeTab === 'caracteristicas'
                     ? 'border-blue-500 text-blue-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
                 }`}
-              >
-                Características
-              </button>
+            >
+                <span className="hidden sm:inline">Características</span>
+                <span className="sm:hidden">Features</span>
+            </button>
             </nav>
-          </div>
+        </div>
 
-          <div className="p-6">
+        <div className="p-4 sm:p-6">
             {activeTab === 'descripcion' && (
-              <div>
+            <div>
                 <h3 className="text-lg font-semibold mb-4">Descripción del producto</h3>
                 <p className="text-gray-600 leading-relaxed mb-4">{product.description}</p>
                 <p className="text-gray-600 leading-relaxed">
-                  Este producto ha sido cuidadosamente seleccionado para ofrecer la mejor calidad y 
-                  satisfacer las necesidades de tu mascota. Confía en nuestra experiencia y brinda 
-                  lo mejor para tu compañero peludo.
+                Este producto ha sido cuidadosamente seleccionado para ofrecer la mejor calidad y 
+                satisfacer las necesidades de tu mascota. Confía en nuestra experiencia y brinda 
+                lo mejor para tu compañero peludo.
                 </p>
-              </div>
+            </div>
             )}
 
             {activeTab === 'especificaciones' && (
-              <div>
+            <div>
                 <h3 className="text-lg font-semibold mb-4">Especificaciones técnicas</h3>
                 {product.specifications && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="flex justify-between border-b pb-2">
-                        <span className="font-medium text-gray-700 capitalize">{key}:</span>
-                        <span className="text-gray-600">{value}</span>
-                      </div>
+                    <div key={key} className="flex flex-col sm:flex-row sm:justify-between border-b pb-2">
+                        <span className="font-medium text-gray-700 capitalize mb-1 sm:mb-0">{key}:</span>
+                        <span className="text-gray-600 sm:text-right">{value}</span>
+                    </div>
                     ))}
-                  </div>
+                </div>
                 )}
-              </div>
+            </div>
             )}
 
             {activeTab === 'caracteristicas' && (
-              <div>
+            <div>
                 <h3 className="text-lg font-semibold mb-4">Características principales</h3>
                 {product.features && (
-                  <ul className="space-y-2">
+                <ul className="space-y-2">
                     {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-start">
-                        <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <li key={index} className="flex items-start">
+                        <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                         <span className="text-gray-600">{feature}</span>
-                      </li>
+                    </li>
                     ))}
-                  </ul>
+                </ul>
                 )}
-              </div>
+            </div>
             )}
-          </div>
+        </div>
         </div>
 
         {/* Productos relacionados */}
