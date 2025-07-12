@@ -269,7 +269,7 @@ export default function ProductDetailPage({ params }) {
                 }`}
             >
                 <span className="hidden sm:inline">Especificaciones</span>
-                <span className="sm:hidden">Specs</span>
+                <span className="sm:hidden">Especificaciones</span>
             </button>
             <button
                 onClick={() => setActiveTab('caracteristicas')}
@@ -280,7 +280,7 @@ export default function ProductDetailPage({ params }) {
                 }`}
             >
                 <span className="hidden sm:inline">Características</span>
-                <span className="sm:hidden">Features</span>
+                <span className="sm:hidden">Características</span>
             </button>
             </nav>
         </div>
